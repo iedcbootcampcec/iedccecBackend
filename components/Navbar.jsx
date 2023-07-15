@@ -1,8 +1,9 @@
-import React, { useRef, useState } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import { FaTimes, FaBars } from "react-icons/fa"
 
 const Navbar = () => {
   const [nav, setNav] = useState(false)
+
   const navbg = () => {
     if (window.scrollY >= 90) {
       setNav(true)
@@ -10,7 +11,14 @@ const Navbar = () => {
       setNav(false)
     }
   }
-// window.addEventListener("scroll", navbg)
+
+  useEffect(() => {
+    window.addEventListener("scroll", navbg)
+
+    return () => {
+      window.removeEventListener("scroll", navbg)
+    }
+  }, [])
 
   const navRef = useRef()
   const showNavbar = () => {

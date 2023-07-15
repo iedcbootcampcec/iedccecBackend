@@ -1,27 +1,29 @@
-import { Announcement, Vanta } from "@/components"
+import { Announcement, Iet, Vanta } from "@/components"
 import { firestore } from "@/utils/firebase"
 
-export default function Home({team}) {
+export default function Home({ AnnouncementData }) {
   return (
     <>
       <Vanta />
-      <div className="sm:px-16 px-10 w-full">
-        <Announcement />
-        {team.map(member => (
-          <h1>{member.name}</h1>
-        ))}
+      <div className="sm:px-16 px-5 w-full">
+        <Iet />
+        <Announcement AnnouncementData={AnnouncementData} />
       </div>
     </>
   )
 }
+//Server side fetching from firebase
+//-------------------------------------------------------------------------------------------------------//
 export async function getServerSideProps() {
   try {
-    const querySnapshot = await firestore.collection("team").get()
-    const fetchedData = querySnapshot.docs.map(doc => doc.data())
+    const AnnouncementSnapshot = await firestore
+      .collection("Announcement")
+      .get()
+    const AnnouncementData = AnnouncementSnapshot.docs.map(doc => doc.data())
 
     return {
       props: {
-        team: fetchedData,
+        AnnouncementData,
       },
     }
   } catch (error) {
@@ -29,7 +31,7 @@ export async function getServerSideProps() {
 
     return {
       props: {
-        team: [],
+        AnnouncementData: [],
       },
     }
   }

@@ -1,6 +1,6 @@
 import React from "react"
 import Head from "next/head"
-import { Navbar } from "@/components"
+import { Footer, Navbar } from "@/components"
 
 const Layout = ({ children }) => {
   return (
@@ -23,7 +23,9 @@ const Layout = ({ children }) => {
         <Navbar />
       </header>
       <main>{children}</main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   )
 }
