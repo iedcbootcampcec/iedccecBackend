@@ -2,7 +2,7 @@ import React from "react"
 
 const Title = ({title}) => {
   return (
-    <div class="flex items-center my-7">
+    <div class="flex items-center my-7" data-aos="flip-up">
       <div class="p-[6px] rounded-md bg-black mr-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"

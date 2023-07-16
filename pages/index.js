@@ -1,13 +1,15 @@
-import { Announcement, Iet, Vanta } from "@/components"
+import { About, Achievements, Announcement, Iet, Vanta } from "@/components"
 import { firestore } from "@/utils/firebase"
 
-export default function Home({ AnnouncementData }) {
+export default function Home({ AnnouncementData, AchievementsData }) {
   return (
     <>
       <Vanta />
       <div className="sm:px-16 px-5 w-full">
         <Iet />
         <Announcement AnnouncementData={AnnouncementData} />
+        <Achievements AchievementsData={AchievementsData} />
+        <About />
       </div>
     </>
   )
@@ -21,9 +23,15 @@ export async function getServerSideProps() {
       .get()
     const AnnouncementData = AnnouncementSnapshot.docs.map(doc => doc.data())
 
+    const AchievementsSnapshot = await firestore
+      .collection("Achievements")
+      .get()
+    const AchievementsData = AchievementsSnapshot.docs.map(doc => doc.data())
+
     return {
       props: {
         AnnouncementData,
+        AchievementsData,
       },
     }
   } catch (error) {
@@ -32,6 +40,7 @@ export async function getServerSideProps() {
     return {
       props: {
         AnnouncementData: [],
+        AchievementsData: [],
       },
     }
   }

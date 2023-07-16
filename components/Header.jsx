@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const Header = () => {
   return (
     <div class="flex flex-col justify-center items-center sm:items-start tracking-wider h-full">
@@ -9,13 +11,15 @@ const Header = () => {
           Innovation And Entrepreneurship <br />
           Development Cell Bootcamp CEC
         </h3>
-        <button
-          id="blogs"
-          class="bg-black mt-2 text-sm sm:text-base text-white px-8 py-[10px] 
+        <Link href="#announcement">
+          <button
+            id="blogs"
+            class="bg-black mt-2 text-sm sm:text-base text-white px-8 py-[10px] 
         rounded-md hover:scale-110 transition"
-        >
-          See What's New!
-        </button>
+          >
+            See What's New!
+          </button>
+        </Link>
       </div>
     </div>
   )

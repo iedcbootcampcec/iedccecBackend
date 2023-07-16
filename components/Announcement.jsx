@@ -60,7 +60,7 @@ const Announcement = ({ AnnouncementData }) => {
         </div>
         <div className="h-fit sm:hidden block ">
           <Swiper
-            height={380}
+            height={450}
             direction={"vertical"}
             slidesPerView={1}
             freeMode={true}
@@ -68,7 +68,7 @@ const Announcement = ({ AnnouncementData }) => {
             mousewheel={true}
             modules={[FreeMode, Scrollbar, Mousewheel]}
             className="mySwiper"
-            spaceBetween={20}
+            spaceBetween={10}
           >
             {AnnouncementData &&
               AnnouncementData.map(item => {
