@@ -5,6 +5,9 @@ import { FreeMode, Scrollbar, Mousewheel } from "swiper"
 import "aos/dist/aos.css"
 import "swiper/swiper-bundle.min.css"
 import Title from "./Title"
+import { LazyLoadImage } from "react-lazy-load-image-component"
+import "../node_modules/react-lazy-load-image-component/src/effects/blur.css"
+import { blurDataURL } from 'blurhash';
 
 const Announcement = ({ AnnouncementData }) => {
   useEffect(() => {
@@ -44,7 +47,9 @@ const Announcement = ({ AnnouncementData }) => {
                             </span>
                           </div>
                           <div class="w-[180px] h-[180px] ">
-                            <img
+                            <LazyLoadImage
+                              width={180}
+                              height={180}
                               class="w-full h-full object-cover"
                               src={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${item.image}`}
                               alt=""
@@ -86,7 +91,10 @@ const Announcement = ({ AnnouncementData }) => {
                             </span>
                           </div>
                           <div class="w-44 h-44 mb-3 self-center">
-                            <img
+                            <LazyLoadImage
+                              width={180}
+                              height={180}
+                              effect="blur"
                               class="w-full h-full object-cover"
                               src={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${item.image}`}
                               alt=""

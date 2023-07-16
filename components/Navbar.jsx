@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react"
 import { FaTimes, FaBars } from "react-icons/fa"
-
+import Image from "next/image"
+import logo from "../images/logo.webp"
 const Navbar = () => {
   const [nav, setNav] = useState(false)
 
@@ -28,7 +29,7 @@ const Navbar = () => {
     <header className={nav && "header-bg"}>
       <div className=" px-[5%] flex">
         <div className="w-[40px] h-[40px]">
-          <img src="" />
+          <Image width={40} height={40} src={logo} />
         </div>
         <svg
           width="80"
