@@ -73,6 +73,7 @@ header .nav-btn {
     padding-left: 20px;
   }
   header nav {
+    z-index: 10000000;
     position: fixed;
     z-index: 2;
     left: 0;
