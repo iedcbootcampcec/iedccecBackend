@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "image": "/images/Sub team/Ananthu.jpg",
+    "name": "Ananthu M P",
+    "position": "Program Manager"
+  },
+  {
+    "id": 2,
+    "image": "/images/Sub team/Sayana.jpg",
+    "name": "Sayana Elizabeth Siju",
+    "position": "Program Manager"
+  },
+  {
+    "id": 3,
+    "image": "/images/Sub team/FuhadSanin.jpg",
+    "name": "Fuhad Sanin",
+    "position": "Technical Analyst"
+  },
+  {
+    "id": 4,
+    "image": "/images/Sub team/Rony Philips Vidhu.jpg",
+    "name": "Rony Philips Vidhu",
+    "position": "Technical Analyst"
+  },
+  {
+    "id": 5,
+    "image": "/images/Sub team/Rosu.jpg",
+    "name": "Rosu J Edanad",
+    "position": "Administrative Manager"
+  },
+  {
+    "id": 6,
+    "image": "/images/Sub team/Aparna.jpg",
+    "name": "Aparna Pradeep",
+    "position": "Administrative Manager"
+  },
+  {
+    "id": 7,
+    "image": "/images/Sub team/Vaishak.png",
+    "name": "Vaisakh R Nair",
+    "position": "Project Lead"
+  },
+  {
+    "id": 8,
+    "image": "/images/Sub team/Reo.png",
+    "name": "Reo George",
+    "position": "Project Lead"
+  },
+  {
+    "id": 9,
+    "image": "/images/Sub team/Athul.jpg",
+    "name": "Athul ME",
+    "position": "Media Lead"
+  },
+  {
+    "id": 10,
+    "image": "/images/Sub team/Edwin.jpg",
+    "name": "Edwin Alex Shaji",
+    "position": "Media Lead"
+  },
+  {
+    "id": 11,
+    "image": "/images/Sub team/JERISHAB M.jpg",
+    "name": "Jerishab",
+    "position": "Media Lead"
+  }
+]

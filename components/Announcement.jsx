@@ -7,7 +7,7 @@ import "swiper/swiper-bundle.min.css"
 import Title from "./Title"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import "../node_modules/react-lazy-load-image-component/src/effects/blur.css"
-import { blurDataURL } from 'blurhash';
+import { blurDataURL } from "blurhash"
 
 const Announcement = ({ AnnouncementData }) => {
   useEffect(() => {
@@ -15,7 +15,7 @@ const Announcement = ({ AnnouncementData }) => {
   }, [])
   return (
     <div id="announcement" class="flex flex-row">
-      <div class="mb-16 ">
+      <div class="mb-16 flex-col md:flex ">
         <Title title="Announcement" />
 
         <div className="Card h-fit sm:block hidden w-[100%]">
@@ -110,54 +110,81 @@ const Announcement = ({ AnnouncementData }) => {
         </div>
       </div>
 
-      <div data-aos="fade-left" class="ml-96 mt-16 sm:block hidden ">
+      <div class="right ml-96 mt-16  ">
         <ul class="flex items-center">
           <li class="flex mr-6 my-2">
-            <button class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow">
+            <button
+              data-aos="flip-up"
+              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+            >
               Workshop
             </button>
           </li>
           <li class="flex mr-6 my-2">
-            <button class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow">
+            <button
+              data-aos="flip-up"
+              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+            >
               Orientation
             </button>
           </li>
           <li class="flex mr-6 my-2">
-            <button class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow">
+            <button
+              data-aos="flip-up"
+              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+            >
               Seminar
             </button>
           </li>
         </ul>
         <ul class="flex item-centre">
           <li class="flex mr-6 my-2">
-            <button class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow">
+            <button
+              data-aos="flip-up"
+              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+            >
               Lecture
             </button>
           </li>
           <li class="flex mr-6 my-2">
-            <button class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow">
+            <button
+              data-aos="flip-up"
+              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+            >
               Hackathon
             </button>
           </li>
           <li class="flex mr-6 my-2">
-            <button class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow">
+            <button
+              data-aos="flip-up"
+              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+            >
               Acheivements
             </button>
           </li>
         </ul>
         <ul class="flex items-center my-2">
           <li class="flex mr-6 my-2">
-            <button class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow">
+            <button
+              data-aos="flip-up"
+              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+            >
               Workshop
             </button>
           </li>
           <li class="flex mr-6 my-2">
-            <button class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow">
+            <button
+              data-aos="flip-up"
+              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+            >
               Seminar
             </button>
           </li>
           <li class="flex mr-6 my-2">
-            <button class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow">
+            <button
+              data-aos="flip-up"
+              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+            >
               Orientation
             </button>
           </li>

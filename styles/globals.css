@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Krona+One&display=swap");
 @tailwind base;
 @tailwind components;
@@ -211,4 +211,53 @@ header .nav-btn {
 }
 #tab ul li {
   text-decoration: crimson;
+}
+#achievements .item {
+  display: block;
+}
+#achievements .item.mob {
+  display: none;
+}
+#achievements .item.sm-mob {
+  display: block;
+}
+#team .item {
+  display: block;
+}
+#team .item.mob {
+  display: none;
+}
+#team .item.sm-mob {
+  display: none;
+}
+@media only screen and (max-width: 1182px) {
+  .right {
+    display: none;
+  }
+  #achievements .item.mob {
+    display: block;
+  }
+  #achievements .item {
+    display: none;
+  }
+  #team .item {
+    display: none;
+  }
+  #team .item.mob {
+    display: block;
+  }
+  #team .item.sm-mob {
+    display: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #team .item {
+    display: none;
+  }
+  #team .item.mob {
+    display: none;
+  }
+  #team .item.sm-mob {
+    display: block;
+  }
 }

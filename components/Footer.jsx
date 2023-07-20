@@ -93,7 +93,7 @@ const Footer = () => {
             <iframe
               title="College of Engineering Chengannur"
               className="md:w-64 rounded-lg w-22 h-22 md:h-64"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.660833972434!2d76.5046621142643!3d9.317553993405585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b078b6e18d94487%3A0x4b18ce9d8d7a4e7c!2sCollege%20of%20Engineering%20Chengannur!5e0!3m2!1sen!2sin!4v1626445276224!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.769261630704!2d76.6178344!3d9.3175461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0622ea027eb08f%3A0x41105b207db821c6!2sCollege%20of%20Engineering%20Chengannur!5e0!3m2!1sen!2sin!4v1626631526191!5m2!1sen!2sin"
               allowFullScreen=""
               loading="lazy"
             ></iframe>

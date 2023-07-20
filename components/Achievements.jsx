@@ -8,9 +8,9 @@ import Title from "./Title"
 export default function Achievements({ AchievementsData }) {
   const swiper = useSwiper()
   return (
-    <div class="mb-16">
+    <div id="achievements" class="mb-16">
       <Title title="Achievements" />
-      <div className="Card h-fit sm:block hidden">
+      <div className="h-fit item">
         <Swiper
           navigation={true}
           modules={[Navigation, Pagination, Autoplay]}
@@ -55,11 +55,11 @@ export default function Achievements({ AchievementsData }) {
             })}
         </Swiper>
       </div>
-      <div className="sm:hidden block">
+      <div className="item mob">
         <Swiper
           navigation={true}
           modules={[Navigation, Pagination, Autoplay]}
-          className="mySwiper"
+          className="mySwiper "
           slidesPerView={1}
           style={{
             "--swiper-navigation-color": "gray",

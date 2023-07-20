@@ -29,7 +29,7 @@ const Vanta = () => {
   }, [vantaEffect])
   return (
     <>
-      <div ref={myRef} className="h-screen px-2 sm:px-16">
+      <div ref={myRef} className="h-screen px-2 md:px-16">
         <Header />
       </div>
     </>

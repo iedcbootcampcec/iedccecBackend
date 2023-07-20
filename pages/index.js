@@ -1,4 +1,12 @@
-import { About, Achievements, Announcement, Iet, Vanta } from "@/components"
+import {
+  About,
+  Achievements,
+  Announcement,
+  Iet,
+  Team,
+  Testimonials,
+  Vanta,
+} from "@/components"
 import { firestore } from "@/utils/firebase"
 
 export default function Home({ AnnouncementData, AchievementsData }) {
@@ -10,6 +18,9 @@ export default function Home({ AnnouncementData, AchievementsData }) {
         <Announcement AnnouncementData={AnnouncementData} />
         <Achievements AchievementsData={AchievementsData} />
         <About />
+        <Team title="The Team" />
+        <Team title="The SubTeam" />
+        <Testimonials />
       </div>
     </>
   )
