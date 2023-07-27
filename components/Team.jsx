@@ -152,11 +152,11 @@ const Team = ({ title }) => {
             data.map(item => {
               return (
                 <SwiperSlide>
-                  <div className="w-[350px] h[350px]">
+                  <div className="w-[300px] h[300px]">
                     <Image
                       src={img}
-                      width={350}
-                      height={350}
+                      width={300}
+                      height={300}
                       objectFit="cover"
                       className="w-full h-full object-cover brightness-[0.7] rounded-2xl"
                     />

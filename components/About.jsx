@@ -36,6 +36,7 @@ const About = () => {
           </h3>
         </div>
       </div>
+      <Tab />
     </div>
   )
 }
