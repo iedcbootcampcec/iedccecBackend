@@ -68,6 +68,7 @@ header .nav-btn {
   header .nav-btn {
     visibility: visible;
     opacity: 1;
+    z-index: 10000000;
   }
   header p {
     padding-left: 20px;
@@ -77,15 +78,18 @@ header .nav-btn {
     position: fixed;
     z-index: 2;
     left: 0;
+    font-weight: 500;
+    font-size: 20px;
     top: 0;
+    background-color: white;
+    width: 50%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     transition: 1s;
-    background-color: #ffffff;
     transform: translateX(-100%);
   }
   header .responsive-nav {
