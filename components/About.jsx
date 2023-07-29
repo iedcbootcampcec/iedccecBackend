@@ -12,7 +12,7 @@ const About = () => {
         <div className="w-[100%] sm:w-[80%] h-fit border-none border-gray-300 rounded-2xl shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] flex flex-col justify-center items-center">
           <p
             data-aos="fade-in"
-            className="sm:p-14 p-4 font-normal text-gray-400  sm:text-[15px] text-sm  text-center italic "
+            className="sm:p-14 p-4 sm:font-normal text-gray-400  sm:text-[15px]  text-sm  text-center italic font-light"
           >
             The Innovation and Entrepreneurship Development Cell [IEDC] Bootcamp
             College of Engineering Chengannur was established in June 2015 in

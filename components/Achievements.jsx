@@ -57,7 +57,6 @@ export default function Achievements({ AchievementsData }) {
       </div>
       <div className="item mob">
         <Swiper
-          navigation={true}
           modules={[Navigation, Pagination, Autoplay]}
           className="mySwiper "
           slidesPerView={1}
