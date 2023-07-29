@@ -9,7 +9,12 @@ import {
 } from "@/components"
 import { firestore } from "@/utils/firebase"
 
-export default function Home({ AnnouncementData, AchievementsData, TeamData }) {
+export default function Home({
+  AnnouncementData,
+  AchievementsData,
+  TeamData,
+  SubTeamData,
+}) {
   return (
     <>
       <Vanta />
@@ -18,8 +23,8 @@ export default function Home({ AnnouncementData, AchievementsData, TeamData }) {
         <Announcement AnnouncementData={AnnouncementData} />
         <Achievements AchievementsData={AchievementsData} />
         <About />
-        <Team title="The Team" time={4000} TeamData={TeamData} />
-        <Team title="The SubTeam" time={3000} TeamData={TeamData} />
+        <Team title="The Team" time={3000} TeamData={TeamData} />
+        <Team title="The SubTeam" time={4000} TeamData={SubTeamData} />
         <Testimonials />
       </div>
     </>
@@ -42,11 +47,15 @@ export async function getServerSideProps() {
     const TeamSnapshot = await firestore.collection("Team").get()
     const TeamData = TeamSnapshot.docs.map(doc => doc.data())
 
+    const SubTeamSnapshot = await firestore.collection("SubTeam").get()
+    const SubTeamData = SubTeamSnapshot.docs.map(doc => doc.data())
+
     return {
       props: {
         AnnouncementData,
         AchievementsData,
         TeamData,
+        SubTeamData,
       },
     }
   } catch (error) {

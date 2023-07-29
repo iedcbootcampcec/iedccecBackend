@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <header className={nav && "header-bg"}>
       <div className=" px-[5%] flex">
-        <div className="w-[40px] h-[40px]">
+        <div className="w-[40px] h-[40px] self-center justify-center">
           <Image width={50} height={50} src={logo} />
         </div>
         <svg
@@ -36,6 +36,7 @@ const Navbar = () => {
           height="30"
           viewBox="0 0 604 362"
           fill="none"
+          className="self-center justify-center"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M0 0H47V242H0V0Z" fill="black" />

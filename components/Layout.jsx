@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
       </Head>
       <div className="flex flex-col h-screen justify-between">
         {loading ? (
-          <div className="flex flex-grow flex-col gap-6 items-center justify-center">
+          <div className="flex h-screen flex-grow flex-col gap-6 items-center justify-center">
             <svg
               data-aos="fade-in"
               width="100"
