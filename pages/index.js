@@ -1,27 +1,61 @@
-import { Announcement, Vanta } from "@/components"
+import {
+  About,
+  Achievements,
+  Announcement,
+  Iet,
+  Team,
+  Testimonials,
+  Vanta,
+} from "@/components"
 import { firestore } from "@/utils/firebase"
 
-export default function Home({team}) {
+export default function Home({
+  AnnouncementData,
+  AchievementsData,
+  TeamData,
+  SubTeamData,
+}) {
   return (
     <>
       <Vanta />
-      <div className="sm:px-16 px-10 w-full">
-        <Announcement />
-        {team.map(member => (
-          <h1>{member.name}</h1>
-        ))}
+      <div className="sm:px-16 px-5 w-full">
+        <Iet />
+        <Announcement AnnouncementData={AnnouncementData} />
+        <Achievements AchievementsData={AchievementsData} />
+        <About />
+        <Team title="The Team" time={3000} TeamData={TeamData} />
+        <Team title="The SubTeam" time={4000} TeamData={SubTeamData} />
+        <Testimonials />
       </div>
     </>
   )
 }
+//Server side fetching from firebase
+//-------------------------------------------------------------------------------------------------------//
 export async function getServerSideProps() {
   try {
-    const querySnapshot = await firestore.collection("team").get()
-    const fetchedData = querySnapshot.docs.map(doc => doc.data())
+    const AnnouncementSnapshot = await firestore
+      .collection("Announcement")
+      .get()
+    const AnnouncementData = AnnouncementSnapshot.docs.map(doc => doc.data())
+
+    const AchievementsSnapshot = await firestore
+      .collection("Achievements")
+      .get()
+    const AchievementsData = AchievementsSnapshot.docs.map(doc => doc.data())
+
+    const TeamSnapshot = await firestore.collection("Team").get()
+    const TeamData = TeamSnapshot.docs.map(doc => doc.data())
+
+    const SubTeamSnapshot = await firestore.collection("SubTeam").get()
+    const SubTeamData = SubTeamSnapshot.docs.map(doc => doc.data())
 
     return {
       props: {
-        team: fetchedData,
+        AnnouncementData,
+        AchievementsData,
+        TeamData,
+        SubTeamData,
       },
     }
   } catch (error) {
@@ -29,7 +63,8 @@ export async function getServerSideProps() {
 
     return {
       props: {
-        team: [],
+        AnnouncementData: [],
+        AchievementsData: [],
       },
     }
   }
