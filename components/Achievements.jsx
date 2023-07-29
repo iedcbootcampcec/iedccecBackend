@@ -90,7 +90,7 @@ export default function Achievements({ AchievementsData }) {
                       <h1 class="text-center text-xl font-semibold mb-3">
                         {item.title}
                       </h1>
-                      <p class="text-sm font-light text-gray-500 text-center">
+                      <p class="text-sm font-light text-gray-500 ">
                         {item.desc}
                       </p>
                     </div>

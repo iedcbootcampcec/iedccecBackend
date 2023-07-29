@@ -1,8 +1,18 @@
 import React from "react"
+import { useEffect, useState } from "react"
+import PropagateLoader from "react-spinners/PropagateLoader"
 import Head from "next/head"
 import { Footer, Navbar } from "@/components"
 
 const Layout = ({ children }) => {
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
+
   return (
     <div>
       <Head>
@@ -20,14 +30,25 @@ const Layout = ({ children }) => {
         ></script>
         <script type="module" src="/src/main.jsx"></script>
       </Head>
-      <header>
-        <Navbar />
-      </header>
-      <main>{children}</main>
-      <footer>
-        <Footer />
-      </footer>
+      <div className="flex flex-col h-screen justify-between">
+        {loading ? (
+          <div className="flex flex-grow items-center justify-center">
+            <PropagateLoader color={"#000000"} loading={loading} size={30} />
+          </div>
+        ) : (
+          <>
+            <header>
+              <Navbar />
+            </header>
+            <main className="flex-grow">{children}</main>
+            <footer>
+              <Footer />
+            </footer>
+          </>
+        )}
+      </div>
     </div>
   )
 }
+
 export default Layout

@@ -7,12 +7,11 @@ import {
   EffectCoverflow,
 } from "swiper"
 import Image from "next/image"
-import img from "../images/FuhadSanin.jpg"
 
 import "swiper/swiper-bundle.min.css"
 import Title from "./Title"
-import data from "./detail.json"
-const Team = ({ title }) => {
+
+const Team = ({ title, time, TeamData }) => {
   return (
     <div id="team" className="mb-16">
       <Title title={title} />
@@ -23,7 +22,7 @@ const Team = ({ title }) => {
           className="mySwiper"
           slidesPerView={5}
           autoplay={{
-            delay: 4000,
+            delay: time,
             disableOnInteraction: false,
           }}
           style={{
@@ -35,16 +34,16 @@ const Team = ({ title }) => {
           onSlideChange={() => console.log("slide change")}
           onSwiper={swiper => console.log(swiper)}
         >
-          {data &&
-            data.map(item => {
+          {TeamData &&
+            TeamData.map(item => {
               return (
                 <SwiperSlide>
-                  <div className="w-56 mx-7 mt-14 mb-14 h-[230px] bg-white border-gray-300 rounded-2xl shadow-xl">
+                  <div className="w-56 mx-7 mt-20 mb-14 h-[230px] bg-white border-gray-300 rounded-2xl shadow-xl">
                     <div className="p-2 flex flex-col items-center justify-center">
                       <div className="flex items-center relative top-[-80px] shadow-lg justify-center w-44 h-44 rounded-full ">
                         <div className="w-[150px] h-[150px]">
                           <Image
-                            src={img}
+                            src={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${item.image}`}
                             width={150}
                             height={150}
                             objectFit="cover"
@@ -72,7 +71,7 @@ const Team = ({ title }) => {
           className="mySwiper"
           slidesPerView={3}
           autoplay={{
-            delay: 4000,
+            delay: time,
             disableOnInteraction: false,
           }}
           style={{
@@ -84,8 +83,8 @@ const Team = ({ title }) => {
           onSlideChange={() => console.log("slide change")}
           onSwiper={swiper => console.log(swiper)}
         >
-          {data &&
-            data.map(item => {
+          {TeamData &&
+            TeamData.map(item => {
               return (
                 <SwiperSlide>
                   <div className="w-56 mx-7 mt-14 mb-14 h-[230px] bg-white border-gray-300 rounded-2xl shadow-xl">
@@ -93,7 +92,7 @@ const Team = ({ title }) => {
                       <div className="flex items-center relative top-[-80px] shadow-lg justify-center w-44 h-44 rounded-full ">
                         <div className="w-[150px] h-[150px]">
                           <Image
-                            src={img}
+                            src={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${item.image}`}
                             width={150}
                             height={150}
                             objectFit="cover"
@@ -113,8 +112,9 @@ const Team = ({ title }) => {
             })}
         </Swiper>
       </div>
-      <div className="item sm-mob">
+      <div className="item sm-mob ">
         <Swiper
+          className="mySwiper flex self-center items-center justify-center "
           modules={[
             Navigation,
             Pagination,
@@ -123,13 +123,13 @@ const Team = ({ title }) => {
             EffectCoverflow,
           ]}
           autoplay={{
-            delay: 2500,
+            delay: time,
             disableOnInteraction: false,
           }}
           style={{
-            "--swiper-navigation-color": "gray",
+            "--swiper-navigation-color": "white",
             "--swiper-navigation-size": "30px",
-            "--swiper-pagination-color": "black",
+            "--swiper-pagination-color": "white",
           }}
           effect={"coverflow"}
           grabCursor={true}
@@ -148,13 +148,13 @@ const Team = ({ title }) => {
           onSlideChange={() => console.log("slide change")}
           onSwiper={swiper => console.log(swiper)}
         >
-          {data &&
-            data.map(item => {
+          {TeamData &&
+            TeamData.map(item => {
               return (
                 <SwiperSlide>
-                  <div className="w-[300px] h[300px]">
+                  <div className="w-full h-[300px]">
                     <Image
-                      src={img}
+                      src={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${item.image}`}
                       width={300}
                       height={300}
                       objectFit="cover"

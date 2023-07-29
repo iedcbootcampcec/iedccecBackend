@@ -28,12 +28,12 @@ const Navbar = () => {
   return (
     <header className={nav && "header-bg"}>
       <div className=" px-[5%] flex">
-        <div className="w-[45px] h-[45px]">
+        <div className="w-[40px] h-[40px]">
           <Image width={50} height={50} src={logo} />
         </div>
         <svg
-          width="80"
-          height="40"
+          width="70"
+          height="30"
           viewBox="0 0 604 362"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
