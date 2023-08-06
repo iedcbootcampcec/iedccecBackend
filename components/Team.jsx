@@ -31,8 +31,6 @@ const Team = ({ title, time, TeamData }) => {
             "--swiper-pagination-color": "black",
           }}
           pagination={{ clickable: true }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={swiper => console.log(swiper)}
         >
           {TeamData &&
             TeamData.map(item => {
@@ -80,8 +78,6 @@ const Team = ({ title, time, TeamData }) => {
             "--swiper-pagination-color": "black",
           }}
           pagination={{ clickable: true }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={swiper => console.log(swiper)}
         >
           {TeamData &&
             TeamData.map(item => {
@@ -127,8 +123,6 @@ const Team = ({ title, time, TeamData }) => {
             "--swiper-pagination-color": "black",
           }}
           pagination={{ clickable: true }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={swiper => console.log(swiper)}
         >
           {TeamData &&
             TeamData.map(item => {

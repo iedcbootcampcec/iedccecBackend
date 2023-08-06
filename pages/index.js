@@ -14,6 +14,7 @@ export default function Home({
   AchievementsData,
   TeamData,
   SubTeamData,
+  TestimonialsData,
 }) {
   return (
     <>
@@ -25,7 +26,7 @@ export default function Home({
         <About />
         <Team title="The Team" time={3000} TeamData={TeamData} />
         <Team title="The SubTeam" time={4000} TeamData={SubTeamData} />
-        <Testimonials />
+        <Testimonials TestimonialsData={TestimonialsData} />
       </div>
     </>
   )
@@ -50,12 +51,18 @@ export async function getServerSideProps() {
     const SubTeamSnapshot = await firestore.collection("SubTeam").get()
     const SubTeamData = SubTeamSnapshot.docs.map(doc => doc.data())
 
+    const TestimonialsSnapshot = await firestore
+      .collection("Testimonials")
+      .get()
+    const TestimonialsData = TestimonialsSnapshot.docs.map(doc => doc.data())
+    
     return {
       props: {
         AnnouncementData,
         AchievementsData,
         TeamData,
         SubTeamData,
+        TestimonialsData,
       },
     }
   } catch (error) {
@@ -65,6 +72,9 @@ export async function getServerSideProps() {
       props: {
         AnnouncementData: [],
         AchievementsData: [],
+        TeamData: [],
+        SubTeamData: [],
+        TestimonialsData: [],
       },
     }
   }

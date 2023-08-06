@@ -5,14 +5,15 @@ import { FreeMode, Scrollbar, Mousewheel } from "swiper"
 import "aos/dist/aos.css"
 import "swiper/swiper-bundle.min.css"
 import Title from "./Title"
-import { LazyLoadImage } from "react-lazy-load-image-component"
+import Image from "next/image"
 import "../node_modules/react-lazy-load-image-component/src/effects/blur.css"
-import { blurDataURL } from "blurhash"
+import { ImCross } from "react-icons/im"
 
 const Announcement = ({ AnnouncementData }) => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true })
   }, [])
+  const notify = () => toast("Here is your toast.")
   return (
     <div id="announcement" class="flex flex-row">
       <div class="mb-16 flex-col md:flex ">
@@ -20,7 +21,7 @@ const Announcement = ({ AnnouncementData }) => {
 
         <div className="Card h-fit sm:block hidden w-[100%]">
           <Swiper
-            height={200}
+            height={300}
             direction={"vertical"}
             slidesPerView={1}
             freeMode={true}
@@ -39,15 +40,34 @@ const Announcement = ({ AnnouncementData }) => {
                       <div class="mt-1 mb-7">
                         <div class="flex flex-row h- gap-5">
                           <div class="flex flex-col w-[280px]">
-                            <a href="" class="font-bold text-[16px] mb-2">
+                            <p className="font-bold text-[16px] mb-2">
                               {item.title}
-                            </a>
+                            </p>
                             <span class="text-[13px] text-gray-600 mb-2">
                               {item.desc}
                             </span>
+                            {item.link ? (
+                              <a
+                                href=""
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <button class="text-sm text-white bg-teal-900 rounded-md w-[50%] py-1 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer">
+                                  Register Now
+                                </button>
+                              </a>
+                            ) : (
+                              <button
+                                onClick={notify}
+                                class="text-sm text-white bg-red-800 rounded-md w-[50%] py-1  cursor-pointer flex items-center justify-center gap-3"
+                              >
+                                <ImCross />
+                                Closed
+                              </button>
+                            )}
                           </div>
                           <div class="w-[180px] h-[180px] ">
-                            <LazyLoadImage
+                            <Image
                               width={180}
                               height={180}
                               class="w-full h-full object-cover"
@@ -91,7 +111,7 @@ const Announcement = ({ AnnouncementData }) => {
                             </span>
                           </div>
                           <div class="w-44 h-44 mb-3 self-center">
-                            <LazyLoadImage
+                            <Image
                               width={180}
                               height={180}
                               effect="blur"
