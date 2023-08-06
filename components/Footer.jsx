@@ -1,7 +1,7 @@
 import React from "react"
 import { FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa"
 import { IconContext } from "react-icons"
-import logo from "../images/logo.webp"
+import logo from "../images/White_college.png"
 import Image from "next/image"
 
 const Footer = () => {
@@ -10,10 +10,10 @@ const Footer = () => {
       <div className="container mx-auto flex flex-wrap">
         <div className="w-full md:w-1/3 text-center md:text-left mb-6 md:mb-0 flex flex-col">
           <Image
-            className="self-center md:self-start"
             src={logo}
             width={100}
             height={100}
+            className="justify-self-center self-center md:self-start"
           />
           <svg
             width="100"

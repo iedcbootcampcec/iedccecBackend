@@ -58,7 +58,6 @@ const Announcement = ({ AnnouncementData }) => {
                               </a>
                             ) : (
                               <button
-                                onClick={notify}
                                 class="text-sm text-white bg-red-800 rounded-md w-[50%] py-1  cursor-pointer flex items-center justify-center gap-3"
                               >
                                 <ImCross />
@@ -106,9 +105,27 @@ const Announcement = ({ AnnouncementData }) => {
                             <a href="" class="font-bold text-[16px] mb-2">
                               {item.title}
                             </a>
-                            <span class="text-[13px] text-gray-600 mb-2">
+                            <span class="text-[13px] text-gray-600 mb-4">
                               {item.desc}
                             </span>
+                            {item.link ? (
+                              <a
+                                href=""
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <button class="text-sm text-white bg-teal-900 rounded-md w-[50%] py-1 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer self-center">
+                                  Register Now
+                                </button>
+                              </a>
+                            ) : (
+                              <button
+                                class="text-sm text-white bg-red-800 rounded-md w-[50%] py-1  cursor-pointer flex items-center justify-center gap-3 self-center mb-2"
+                              >
+                                <ImCross />
+                                Closed
+                              </button>
+                            )}
                           </div>
                           <div class="w-44 h-44 mb-3 self-center">
                             <Image
