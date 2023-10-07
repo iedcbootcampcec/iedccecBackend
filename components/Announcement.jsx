@@ -46,9 +46,14 @@ const Announcement = ({ AnnouncementData }) => {
                             <span class="text-[13px] text-gray-600 mb-2">
                               {item.desc}
                             </span>
-                            {item.link ? (
+                            {item.link === "closed" ? (
+                              <button class="text-sm text-white bg-red-800 rounded-md w-[50%] py-1 cursor-pointer flex items-center justify-center gap-3">
+                                <ImCross />
+                                Closed
+                              </button>
+                            ) : item.link ? (
                               <a
-                                href=""
+                                href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
@@ -56,14 +61,7 @@ const Announcement = ({ AnnouncementData }) => {
                                   Register Now
                                 </button>
                               </a>
-                            ) : (
-                              <button
-                                class="text-sm text-white bg-red-800 rounded-md w-[50%] py-1  cursor-pointer flex items-center justify-center gap-3"
-                              >
-                                <ImCross />
-                                Closed
-                              </button>
-                            )}
+                            ) : null}
                           </div>
                           <div class="w-[180px] h-[180px] ">
                             <Image
@@ -119,9 +117,7 @@ const Announcement = ({ AnnouncementData }) => {
                                 </button>
                               </a>
                             ) : (
-                              <button
-                                class="text-sm text-white bg-red-800 rounded-md w-[50%] py-1  cursor-pointer flex items-center justify-center gap-3 self-center mb-2"
-                              >
+                              <button class="text-sm text-white bg-red-800 rounded-md w-[50%] py-1  cursor-pointer flex items-center justify-center gap-3 self-center mb-2">
                                 <ImCross />
                                 Closed
                               </button>

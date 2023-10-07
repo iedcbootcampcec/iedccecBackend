@@ -36,7 +36,7 @@ const Team = ({ title, time, TeamData }) => {
             TeamData.map(item => {
               return (
                 <SwiperSlide>
-                  <div className="w-56 mx-7 mt-20 mb-14 h-[230px] bg-white border-gray-300 rounded-2xl shadow-xl">
+                  <div className="w-56 mx-7 mt-20 mb-14 h-[230px] bg-white border-gray-300 rounded-2xl shadow-xl flex justify-center">
                     <div className="p-2 flex flex-col items-center justify-center">
                       <div className="flex items-center relative top-[-80px] shadow-lg justify-center w-44 h-44 rounded-full ">
                         <div className="w-[150px] h-[150px]">
