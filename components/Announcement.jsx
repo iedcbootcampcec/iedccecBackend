@@ -106,22 +106,22 @@ const Announcement = ({ AnnouncementData }) => {
                             <span class="text-[13px] text-gray-600 mb-4">
                               {item.desc}
                             </span>
-                            {item.link ? (
-                              <a
-                                href=""
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <button class="text-sm text-white bg-teal-900 rounded-md w-[50%] py-1 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer self-center">
-                                  Register Now
-                                </button>
-                              </a>
-                            ) : (
-                              <button class="text-sm text-white bg-red-800 rounded-md w-[50%] py-1  cursor-pointer flex items-center justify-center gap-3 self-center mb-2">
+                            {item.link === "closed" ? (
+                              <button class="text-sm text-white bg-red-800 rounded-md w-[50%] py-1 cursor-pointer flex items-center justify-center gap-3">
                                 <ImCross />
                                 Closed
                               </button>
-                            )}
+                            ) : item.link ? (
+                              <a
+                                href={item.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <button class="text-sm text-white bg-teal-900 rounded-md w-[50%] py-1 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer">
+                                  Register Now
+                                </button>
+                              </a>
+                            ) : null}
                           </div>
                           <div class="w-44 h-44 mb-3 self-center">
                             <Image
