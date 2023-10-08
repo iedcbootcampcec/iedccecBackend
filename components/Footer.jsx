@@ -1,5 +1,5 @@
 import React from "react"
-import { FaFacebook, FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa"
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"
 import { IconContext } from "react-icons"
 import logo from "../images/White_college.png"
 import Image from "next/image"
@@ -183,8 +183,12 @@ const Footer = () => {
             />
           </svg>
           <h5 className="mb-4 text-white">Contact Us</h5>
-          <p className="text-gray-400">Email: example@example.com</p>
-          <p className="text-gray-400">Phone: 123-456-7890</p>
+          <a href="mailto:iedc_bootcamp@ceconline.edu">
+            <p className="text-gray-400">Email: iedc_bootcamp@ceconline.edu</p>
+          </a>
+          <a href="mailto:Ceo_iedc@ceconline.edu">
+            <p className="text-gray-400">CEO: ceo_iedc@ceconline.edu </p>
+          </a>
         </div>
         <div className="w-full md:w-1/3 text-center mb-6 md:mb-0">
           <h5 className="mb-4 text-white">Follow Us</h5>
@@ -219,11 +223,11 @@ const Footer = () => {
                 <FaTwitter />
               </a>
               <a
-                href="https://github.com/iedcbootcampcec"
+                href="https://instagram.com/iedcbootcampcec?igshid=MzRlODBiNWFlZA=="
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaGithub />
+                <FaInstagram />
               </a>
             </IconContext.Provider>
           </div>
