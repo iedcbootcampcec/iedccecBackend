@@ -207,7 +207,7 @@ const Navbar = () => {
         <a href="#vision">Our Vision</a>
         <a href="#announcment-section"> Events</a>
         <a href="#achievements"> Achievements</a>
-        {/* <Link href="/Execom">Execom</Link> */}
+        <Link href="/Execom">Execom</Link>
         <a href="#About"> About</a>
         <a href="#team"> Team</a>
         <a href="#Testimonials"> Testimonials</a>

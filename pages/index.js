@@ -12,7 +12,7 @@ import { firestore } from "@/utils/firebase"
 export default function Home({
   AnnouncementData,
   AchievementsData,
-  TeamData,
+  Team24Data,
   SubTeamData,
   TestimonialsData,
   FacultyData,
@@ -26,8 +26,8 @@ export default function Home({
         <Achievements AchievementsData={AchievementsData} />
         <About />
         <Team title="Faculty" time={4000} TeamData={FacultyData} />
-        <Team title="The Team" time={3000} TeamData={TeamData} />
-        <Team title="The SubTeam" time={4000} TeamData={SubTeamData} />
+        <Team title="The Team" time={3000} TeamData={SubTeamData} />
+        <Team title="The SubTeam" time={4000} TeamData={Team24Data} />
         <Testimonials TestimonialsData={TestimonialsData} />
       </div>
     </>
@@ -50,11 +50,11 @@ export async function getServerSideProps() {
     const FacultySnapshot = await firestore.collection("Faculty").get()
     const FacultyData = FacultySnapshot.docs.map(doc => doc.data())
 
-    const TeamSnapshot = await firestore.collection("Team").get()
-    const TeamData = TeamSnapshot.docs.map(doc => doc.data())
-
     const SubTeamSnapshot = await firestore.collection("SubTeam").get()
     const SubTeamData = SubTeamSnapshot.docs.map(doc => doc.data())
+
+    const Team24Snapshot = await firestore.collection("Team 24").get()
+    const Team24Data = Team24Snapshot.docs.map(doc => doc.data())
 
     const TestimonialsSnapshot = await firestore
       .collection("Testimonials")
@@ -65,7 +65,7 @@ export async function getServerSideProps() {
       props: {
         AnnouncementData,
         AchievementsData,
-        TeamData,
+        Team24Data,
         SubTeamData,
         TestimonialsData,
         FacultyData,
@@ -78,7 +78,7 @@ export async function getServerSideProps() {
       props: {
         AnnouncementData: [],
         AchievementsData: [],
-        TeamData: [],
+        Team24Data: [],
         SubTeamData: [],
         TestimonialsData: [],
         FacultyData: [],
