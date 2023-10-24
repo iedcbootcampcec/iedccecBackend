@@ -32,13 +32,13 @@ const Navbar = () => {
         <div className="w-[40px] h-[40px] self-center justify-center">
           <Image width={50} height={50} src={logo} />
         </div>
-        <Link href="/">
+        <Link className="flex" href="/">
           <svg
             width="70"
             height="30"
             viewBox="0 0 604 362"
             fill="none"
-            className="self-center justify-center"
+            className=" self-center justify-center "
             xmlns="http://www.w3.org/2000/svg"
           >
             <path d="M0 0H47V242H0V0Z" fill="black" />
@@ -203,9 +203,9 @@ const Navbar = () => {
         </Link>
       </div>
       <nav ref={navRef}>
-        {/* <Link href="/">Home</Link> */}
+        <Link href="/">Home</Link> 
         <a href="#vision">Our Vision</a>
-        <a href="#announcment-section"> Events</a>
+        <Link href="/Events"> Events</Link>
         <a href="#achievements"> Achievements</a>
         {/* <Link href="/Execom">Execom</Link> */}
         <a href="#About"> About</a>
