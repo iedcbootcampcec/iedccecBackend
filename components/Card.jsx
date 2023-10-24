@@ -17,12 +17,12 @@ function Card(props) {
   }, [])
     let [Expanding ,setExpanding] = useState(true)
   return (
-    <motion.div animate={{height:!Expanding ? 650:600}} type={spring} Layout data-aos="flip-up"  className='b0g-white h-fit  w-[300px] mb-6 rounded-lg hover:scale-100 shadow-lg hover:shadow-2xl   '  >
+    <motion.div animate={{height:!Expanding ? 750:700}} type={spring} Layout data-aos="flip-up"  className='b0g-white h-fit  w-[440px] mb-6 rounded-lg  shadow-2xl hover:shadow-black   '  >
         <div className='flex flex-col h-full'>
             <div>
                 <Image     
-                    width={250}
-                    height={250}
+                    width={150}
+                    height={150}
                     effect="blur"
                     className="w-full h-full object-cover  p-2"
                     src={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${props.image}`}
