@@ -17,21 +17,24 @@ function Card(props) {
   }, [])
     let [Expanding ,setExpanding] = useState(true)
   return (
-    <motion.div animate={{height:!Expanding ? 'auto':470}} type={spring} Layout data-aos="flip-up" duration="2000"  className='b0g-white h-fit  w-[330px]  rounded-lg  shadow-2xl hover:shadow-black  '  >
-        <div className='flex flex-col h-full m-1 '>
-            <div className='flex justify-center'>
+    <div className="h-fit w-fit " data-aos="flip-up">
+      <motion.div animate={{height:!Expanding ? 'auto':580 }}  type={spring} Layout  duration="2000"  className='b0g-white h-fit  w-[350px]  rounded-lg  shadow-2xl hover:shadow-slate-700  ' style={{
+      transition: 'box-shadow 0.7s ease ',  
+    }} >
+        <div className='flex flex-col h-full  '>
+            <div className='flex justify-center '>
                 <Image     
-                    width={250}
+                    width={350}
                     height={250}
                     effect="blur"
-                    className=" object-cover  p-2"
+                    className=" "
                     src={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${props.image}`}
                     alt=""/>
             </div>
             <div className="flex flex-col h-full  m-1  ">
             <div className="flex items-center ">
 
-            <a href="" className="flex justify-center items-center font-bold text-[20px] mb-2 mx-2 w-[125px]">{props.title}</a>
+            <a href="" className="flex justify-center items-center font-bold text-[25px] mb-2 ml-2  w-[500px]">{props.title}</a>
             
             
             <div
@@ -118,6 +121,7 @@ function Card(props) {
             </div>
         </div>
     </motion.div>
+    </div>
   )
 }
 

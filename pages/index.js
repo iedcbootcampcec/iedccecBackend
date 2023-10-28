@@ -8,7 +8,8 @@ import {
   Vanta,
 } from "@/components"
 import { firestore } from "@/utils/firebase"
-import Events from "./Events"
+
+
 
 export default function Home({
   AnnouncementData,
@@ -30,7 +31,6 @@ export default function Home({
         <Team title="The Team" time={3000} TeamData={TeamData} />
         <Team title="The SubTeam" time={4000} TeamData={SubTeamData} />
         <Testimonials TestimonialsData={TestimonialsData} />
-        <Events AnnouncementData={AnnouncementData} />
       </div>
     </>
   )

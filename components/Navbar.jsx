@@ -204,13 +204,13 @@ const Navbar = () => {
       </div>
       <nav ref={navRef}>
         <Link href="/">Home</Link> 
-        <a href="#vision">Our Vision</a>
+        <Link href="/#vision">Our Vision</Link>
         <Link href="/Events"> Events</Link>
-        <a href="#achievements"> Achievements</a>
+        <Link href="/#achievements"> Achievements</Link>
         {/* <Link href="/Execom">Execom</Link> */}
-        <a href="#About"> About</a>
-        <a href="#team"> Team</a>
-        <a href="#Testimonials"> Testimonials</a>
+        <Link href="/#About"> About</Link>
+        <Link href="/#team"> Team</Link>
+        <Link href="/#Testimonials"> Testimonials</Link>
         <button class="text-sm text-white bg-black rounded-md px-6 py-2 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer">
           JoinUs
         </button>
