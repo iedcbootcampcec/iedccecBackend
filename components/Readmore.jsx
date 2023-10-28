@@ -15,10 +15,10 @@ function Readmore({children,maxlength=95,Expanding,setExpanding}) {
     let text = Expanding?  children.substring(0,maxlength):children
   return (
     <div>
-        <span className="text-[13px] text-gray-600 mb-4 mx-2 overflow-auto " >
+        <span className="text-[10px] text-gray-600 mb-4 mx-2 overflow-auto " >
              {text} ...
         </span>
-        <a className='text-blue-300 hover:text-blue-500'  onClick={() => setExpanding(!Expanding)}>
+        <a className='text-blue-300 hover:text-blue-500 text-[11px]'  onClick={() => setExpanding(!Expanding)}>
         {Expanding ? 'Read more' : 'Read less'}
       </a>
     </div>
