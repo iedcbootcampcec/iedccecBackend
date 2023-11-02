@@ -34,7 +34,7 @@ function Card(props) {
             <div className="flex flex-col h-full  m-1  ">
             <div className="flex items-center ">
 
-            <a href="" className="flex   font-bold text-[25px] mb-2 ml-2 h-[75px] w-[500px]">{props.title}</a>
+            <a href="" className="flex   font-bold text-[25px] mb-2 ml-2  w-[500px]">{props.title}</a>
             
             
             <div
