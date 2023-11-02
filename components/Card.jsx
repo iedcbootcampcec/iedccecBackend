@@ -34,7 +34,7 @@ function Card(props) {
             <div className="flex flex-col h-full  m-1  ">
             <div className="flex items-center ">
 
-            <a href="" className="flex justify-center items-center font-bold text-[25px] mb-2 ml-2  w-[500px]">{props.title}</a>
+            <a href="" className="flex   font-bold text-[25px] mb-2 ml-2 h-[75px] w-[500px]">{props.title}</a>
             
             
             <div
@@ -56,23 +56,23 @@ function Card(props) {
                 position="right center" >
                 <div className='text-center ' data-aos="zoom-in-right" data-aos-duration="600">Share</div>
                 <div className='flex gap-2 mr-4' data-aos="zoom-in-right" data-aos-duration="600">
-                      <WhatsappShareButton url='https://www.youtube.com/watch?v=u8vaAc3ivcY&list=PL4cUxeGkcC9g9gP2onazU5-2M-AzA8eBw&index=10'>
+                      <WhatsappShareButton url={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${props.image}`}>
                         <WhatsappIcon round="True" size={32}></WhatsappIcon>
                       </WhatsappShareButton>
                       
-                      <FacebookShareButton url="https://www.youtube.com/watch?v=u8vaAc3ivcY&list=PL4cUxeGkcC9g9gP2onazU5-2M-AzA8eBw&index=10">
+                      <FacebookShareButton url={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${props.image}`}>
                         <FacebookIcon round="True" size={32}></FacebookIcon>
                       </FacebookShareButton>
                       
-                      <RedditShareButton url="https://www.youtube.com/watch?v=u8vaAc3ivcY&list=PL4cUxeGkcC9g9gP2onazU5-2M-AzA8eBw&index=10">
+                      <RedditShareButton url={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${props.image}`}>
                       <RedditIcon round="True" size={32}></RedditIcon>
                       </RedditShareButton>
                       
-                      <TelegramShareButton>
+                      <TelegramShareButton url={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${props.image}`}>
                         <TelegramIcon round="True" size={32}></TelegramIcon>
                       </TelegramShareButton>
 
-                      <TwitterShareButton url="https://www.youtube.com/watch?v=u8vaAc3ivcY&list=PL4cUxeGkcC9g9gP2onazU5-2M-AzA8eBw&index=10">
+                      <TwitterShareButton url={`https://firebasestorage.googleapis.com/v0/b/iedccecbackend.appspot.com/o/${props.image}`}>
                         <TwitterIcon round="True" size={32}></TwitterIcon>
                       </TwitterShareButton>
 
@@ -81,9 +81,9 @@ function Card(props) {
               
             </div>
             <div>
-            <a href="" className="flex   text-[15px] mb-2 mx-2">DD/MM/YY{props.Date}</a>
+            <a href="" className="flex   text-[15px] mb-2 ml-2">DD/MM/YY{props.Date}</a>
             </div>
-           <motion.div  className="mx-1 mr-2 pr-5 w-full  break-words text-gray-500 ">
+           <motion.div  className="mx-1 ml-4 pr-5 w-full  break-words text-gray-500 ">
               <Readmore Expanding={Expanding} setExpanding={setExpanding} onClick={() => setExpanding(!Expanding)} >
               
               {/* <span className="text-[13px] text-gray-600 mb-4 mx-2 overflow-auto "> */}

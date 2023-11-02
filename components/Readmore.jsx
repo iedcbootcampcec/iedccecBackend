@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-function Readmore({children,maxlength=95,Expanding,setExpanding}) {
+function Readmore({children,maxlength=100,Expanding,setExpanding}) {
 
     
   if (!children) {
