@@ -19,7 +19,7 @@ const Title = ({title}) => {
         </svg>
       </div>
       <h2 id="announcment-section" class="text-2xl">
-        {title}sbqwihsqwhib
+        {title}
       </h2>
     </div>
   )
