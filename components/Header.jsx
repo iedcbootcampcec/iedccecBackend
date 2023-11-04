@@ -11,15 +11,15 @@ const Header = () => {
           Innovation And Entrepreneurship <br />
           Development Cell Bootcamp CEC
         </h3>
-        <Link href="#announcement">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSelHbI4I12mE-mQBLU-LRn6bG5EHLBuvQA1k_V7DyAVeFKP2Q/viewform">
           <button
             id="blogs"
             class="bg-black mt-2 text-sm md:text-base text-white px-8 py-[10px] 
         rounded-md hover:scale-110 transition"
           >
-            See What's New!
+            Onboard Here!
           </button>
-        </Link>
+        </a>
       </div>
     </div>
   )

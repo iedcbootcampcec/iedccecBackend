@@ -7,8 +7,8 @@ import Image from "next/image"
 const Footer = () => {
   return (
     <footer className="bg-gray-800 py-8">
-      <div className="container mx-auto flex flex-wrap">
-        <div className="w-full md:w-1/3 text-center md:text-left mb-6 md:mb-0 flex flex-col">
+      <div class="block" className="container mx-auto flex flex-wrap ">
+        <div className="w-full md:w-1/3 text-center md:text-left mb-6 md:mb-0 flex flex-col md:ml-6 ">
           <Image
             src={logo}
             width={100}
@@ -253,7 +253,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="w-full md:w-1/3 text-center flex flex-col md:text-right ">
+        <div className="w-full md:w-1/4 text-center flex flex-col md:text-right  md:mx-3">
           <h5 className="mb-4 text-white">Location</h5>
           <div className="map-container mb-4 self-center md:self-end">
             <iframe

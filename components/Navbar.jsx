@@ -205,9 +205,9 @@ const Navbar = () => {
       <nav ref={navRef}>
         <Link href="/">Home</Link> 
         <Link href="/Events"> Events</Link>
-        <Link href="/#achievements"> Achievements</Link>
+        {/* <Link href="/#achievements"> Achievements</Link> */}
         <Link href="/#team">Execom</Link> 
-        <Link href="/#team">Team</Link>
+        {/* <Link href="/#team">Team</Link> */}
         <Link href="/#Testimonials"> Testimonials</Link>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSelHbI4I12mE-mQBLU-LRn6bG5EHLBuvQA1k_V7DyAVeFKP2Q/viewform">
           <button class="text-sm text-white bg-black rounded-md px-6 py-2 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer">
