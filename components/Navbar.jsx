@@ -205,15 +205,21 @@ const Navbar = () => {
       <nav ref={navRef}>
         {/* <Link href="/">Home</Link> */}
         <a href="#vision">Our Vision</a>
-        <a href="#announcment-section"> Events</a>
+        {/* <a href="#announcment-section"> Events</a> */}
         <a href="#achievements"> Achievements</a>
-        <Link href="/Execom">Execom</Link>
+        {/* <Link href="/Execom">Execom</Link> */}
         <a href="#About"> About</a>
         <a href="#team"> Team</a>
         <a href="#Testimonials"> Testimonials</a>
-        <button class="text-sm text-white bg-black rounded-md px-6 py-2 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer">
-          JoinUs
-        </button>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSelHbI4I12mE-mQBLU-LRn6bG5EHLBuvQA1k_V7DyAVeFKP2Q/viewform"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button class="text-sm text-white bg-black rounded-md px-6 py-2 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer">
+            JoinUs
+          </button>
+        </a>
 
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes className="icons times" />
