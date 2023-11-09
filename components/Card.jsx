@@ -81,7 +81,7 @@ function Card(props) {
               
             </div>
             <div>
-            <a href="" className="flex   text-[15px] mb-2 ml-2">DD/MM/YY{props.Date}</a>
+            <a href="" className="flex   text-[15px] mb-2 ml-2">{props.Date}</a>
             </div>
            <motion.div  className="mx-1 ml-4 pr-5 w-full  break-words text-gray-500 ">
               <Readmore Expanding={Expanding} setExpanding={setExpanding} onClick={() => setExpanding(!Expanding)} >

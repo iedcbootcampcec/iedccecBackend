@@ -190,7 +190,7 @@ const Announcement = ({ AnnouncementData }) => {
           <li class="flex mr-6 my-2">
             <button
               data-aos="flip-up"
-              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+              class="text-[12px]  bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
             >
               Acheivements
             </button>
@@ -200,7 +200,7 @@ const Announcement = ({ AnnouncementData }) => {
           <li class="flex mr-6 my-2">
             <button
               data-aos="flip-up"
-              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+              class="text-[12px]  bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
             >
               Workshop
             </button>
@@ -208,7 +208,7 @@ const Announcement = ({ AnnouncementData }) => {
           <li class="flex mr-6 my-2">
             <button
               data-aos="flip-up"
-              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+              class="text-[12px]  bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
             >
               Seminar
             </button>
@@ -216,7 +216,7 @@ const Announcement = ({ AnnouncementData }) => {
           <li class="flex mr-6 my-2">
             <button
               data-aos="flip-up"
-              class="text-[12px] text-gray-600 bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
+              class="text-[12px]  bg-white hover:bg-gray-100 text-gray-800 py-2 px-6 border border-gray-200 rounded shadow"
             >
               Orientation
             </button>
