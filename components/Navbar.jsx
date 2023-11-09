@@ -205,7 +205,7 @@ const Navbar = () => {
       <nav ref={navRef}>
         {/* <Link href="/">Home</Link> */}
         <a href="#vision">Our Vision</a>
-        {/* <a href="#announcment-section"> Events</a> */}
+        <Link href="/Events"> Events</Link>
         <a href="#achievements"> Achievements</a>
         {/* <Link href="/Execom">Execom</Link> */}
         <a href="#About"> About</a>
