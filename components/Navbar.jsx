@@ -32,13 +32,13 @@ const Navbar = () => {
         <div className="w-[40px] h-[40px] self-center justify-center">
           <Image width={50} height={50} src={logo} />
         </div>
-        <Link href="/">
+        <Link className="flex" href="/">
           <svg
             width="70"
             height="30"
             viewBox="0 0 604 362"
             fill="none"
-            className="self-center justify-center"
+            className=" self-center justify-center "
             xmlns="http://www.w3.org/2000/svg"
           >
             <path d="M0 0H47V242H0V0Z" fill="black" />
@@ -203,22 +203,16 @@ const Navbar = () => {
         </Link>
       </div>
       <nav ref={navRef}>
-        {/* <Link href="/">Home</Link> */}
-        <a href="#vision">Our Vision</a>
+        <Link href="/">Home</Link> 
         <Link href="/Events"> Events</Link>
-        <a href="#achievements"> Achievements</a>
-        {/* <Link href="/Execom">Execom</Link> */}
-        <a href="#About"> About</a>
-        <a href="#team"> Team</a>
-        <a href="#Testimonials"> Testimonials</a>
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSelHbI4I12mE-mQBLU-LRn6bG5EHLBuvQA1k_V7DyAVeFKP2Q/viewform"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        {/* <Link href="/#achievements"> Achievements</Link> */}
+        <Link href="/#team">Execom</Link> 
+        {/* <Link href="/#team">Team</Link> */}
+        <Link href="/#Testimonials"> Testimonials</Link>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSelHbI4I12mE-mQBLU-LRn6bG5EHLBuvQA1k_V7DyAVeFKP2Q/viewform">
           <button class="text-sm text-white bg-black rounded-md px-6 py-2 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer">
-            JoinUs
-          </button>
+          JoinUs
+        </button>
         </a>
 
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
