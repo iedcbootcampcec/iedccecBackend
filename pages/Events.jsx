@@ -7,14 +7,14 @@ import { firestore } from "@/utils/firebase"
 
 export async function getServerSideProps() {
   try {
-    const AnnouncementSnapshot = await firestore
-      .collection("Announcement")
+    const EventsSnapshot = await firestore
+      .collection("Events")
       .get()
-    const AnnouncementData = AnnouncementSnapshot.docs.map(doc => doc.data())
+    const EventsData = EventsSnapshot.docs.map(doc => doc.data())
 
     return {
       props: {
-        AnnouncementData,
+        EventsData,
       },
     }
   } catch (error) {
@@ -22,19 +22,23 @@ export async function getServerSideProps() {
 
     return {
       props: {
-        AnnouncementData: [],
+        EventsData: [],
       },
     }
   }
 }
 
-function Events({ AnnouncementData }) {
+function Events({ EventsData }) {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true })
   }, [])
 
-  const openEvents = AnnouncementData.filter(item => item.link !== "closed")
-  const closedEvents = AnnouncementData.filter(item => item.link === "closed")
+  const openEvents = EventsData ? EventsData.filter(item => item.link !== "closed") : [];
+  const openEventsSorted = openEvents.sort((a, b) =>a.date < b.date ? 1:-1,); 
+
+  const closedEvents = EventsData ? EventsData.filter(item => item.link === "closed") : [];
+  const closedEventsSorted = closedEvents.sort((a, b) =>a.date < b.date ? 1:-1,); 
+
 
   return (
     <motion.div
@@ -45,10 +49,11 @@ function Events({ AnnouncementData }) {
         Events
       </div>
       <div className="flex flex-wrap justify-center items-start gap-32 w-full mt-5 mx-[300px]">
-        {openEvents.map(item => (
+        {openEventsSorted.map(item => (
           <Card key={item.title} {...item} />
         ))}
-        {closedEvents.map(item => (
+        
+        {closedEventsSorted.map(item => (
           <Card key={item.title} {...item} />
         ))}
       </div>
