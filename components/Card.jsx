@@ -132,7 +132,7 @@ function Card(props) {
             </div>
             <div>
               <a href="" className="flex   text-[15px] mb-2 ml-2">
-                {date[0]}-{date[1]}-{date[2]}
+                {date[2]}-{date[1]}-{date[0]}
               </a>
             </div>
             <motion.div className="mx-1 ml-4 pr-5 w-full  break-words text-gray-500 ">
