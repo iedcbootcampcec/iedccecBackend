@@ -50,10 +50,10 @@ export async function getServerSideProps() {
     const FacultySnapshot = await firestore.collection("Faculty").get()
     const FacultyData = FacultySnapshot.docs.map(doc => doc.data())
 
-    const SubTeamSnapshot = await firestore.collection("SubTeam").get()
+    const SubTeamSnapshot = await firestore.collection("SubTeam").orderBy("id").get()
     const SubTeamData = SubTeamSnapshot.docs.map(doc => doc.data())
 
-    const Team24Snapshot = await firestore.collection("Team 24").get()
+    const Team24Snapshot = await firestore.collection("Team 24").orderBy("id").get()
     const Team24Data = Team24Snapshot.docs.map(doc => doc.data())
 
     const TestimonialsSnapshot = await firestore
