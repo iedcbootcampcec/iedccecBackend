@@ -155,7 +155,8 @@ function Card(props) {
               ) : props.link ? (
                 <a href={props.gflink} target="_blank" rel="noopener">
                   <button class="text-sm text-white bg-teal-900 rounded-md w-full  py-1 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer">
-                    <div className="m-2">Register Now</div>
+                    <a href={props.link} className="m-2">Register Now</a>
+                    
                   </button>
                 </a>
               ) : null}
