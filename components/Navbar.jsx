@@ -7,7 +7,7 @@ const Navbar = () => {
   const [nav, setNav] = useState(false)
 
   const navbg = () => {
-    if (window.scrollY >= 90) {
+    if (window.scrollY >= 20) {
       setNav(true)
     } else {
       setNav(false)
