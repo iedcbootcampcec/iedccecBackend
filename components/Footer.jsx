@@ -1,5 +1,5 @@
 import React from "react"
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin,FaYoutube } from "react-icons/fa"
 import { IconContext } from "react-icons"
 import logo from "../images/White_college.png"
 import Image from "next/image"
@@ -226,8 +226,15 @@ const Footer = () => {
                 href="https://instagram.com/iedcbootcampcec?igshid=MzRlODBiNWFlZA=="
                 target="_blank"
                 rel="noopener noreferrer"
+                className="mr-4"
               >
                 <FaInstagram />
+              </a>
+              <a href="https://youtube.com/@IEDCBOOTCAMPCEC?si=x6u21UUozo0bImGF"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+                <FaYoutube />
               </a>
             </IconContext.Provider>
           </div>

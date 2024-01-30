@@ -14,7 +14,7 @@ import Title from "./Title"
 const Team = ({ title, time, TeamData }) => {
   return (
     <div id="team" className="mb-16">
-      <Title title={title} />
+      {/* <Title title={title} />
       <div className="item h-fit mt-10">
         <Swiper
           navigation={true}
@@ -107,7 +107,7 @@ const Team = ({ title, time, TeamData }) => {
               )
             })}
         </Swiper>
-      </div>
+      </div> */}
       <div className="item sm-mob ">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
@@ -138,7 +138,7 @@ const Team = ({ title, time, TeamData }) => {
                             height={150}
                             objectFit="cover"
                             alt="Circular Image"
-                            className="rounded-full w-full h-full object-cover"
+                            className="rounded-full w-full h-full object-cover pt-2"
                           />
                         </div>
                       </div>
