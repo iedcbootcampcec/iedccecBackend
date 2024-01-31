@@ -6,6 +6,7 @@ import "swiper/swiper-bundle.min.css"
 import Title from "./Title"
 
 export default function Achievements({ AchievementsData }) {
+  const AchivementsDataSorted = AchievementsData.sort((a, b) =>a.date < b.date ? 1:-1,); 
   const swiper = useSwiper()
   return (
     <div id="achievements" class="mb-16">
@@ -27,8 +28,8 @@ export default function Achievements({ AchievementsData }) {
           }}
           pagination={{ clickable: true }}
         >
-          {AchievementsData &&
-            AchievementsData.map(item => {
+          {AchivementsDataSorted &&
+            AchivementsDataSorted.map(item => {
               return (
                 <SwiperSlide>
                   <div className="mb-[100px] mx-12 border-none gap-4 border-gray-300 rounded-2xl shadow-xl w-[350px] flex flex-col justify-center items-center">
@@ -71,8 +72,8 @@ export default function Achievements({ AchievementsData }) {
           }}
           pagination={{ clickable: true }}
         >
-          {AchievementsData &&
-            AchievementsData.map(item => {
+          {AchivementsDataSorted &&
+            AchivementsDataSorted.map(item => {
               return (
                 <SwiperSlide>
                   <div className="mb-[100px] mx-8 border-none gap-4 border-gray-300 rounded-2xl shadow-xl w-[300px]">

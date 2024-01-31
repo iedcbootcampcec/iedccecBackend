@@ -138,7 +138,7 @@ const Team = ({ title, time, TeamData }) => {
                             height={150}
                             objectFit="cover"
                             alt="Circular Image"
-                            className="rounded-full w-full h-full object-cover"
+                            className="rounded-full w-full h-full object-cover pt-2"
                           />
                         </div>
                       </div>

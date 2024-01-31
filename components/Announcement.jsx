@@ -143,7 +143,7 @@ const Announcement = ({ AnnouncementData }) => {
         </div>
       </div>
 
-      <div class="right ml-96 mt-16  ">
+      {/* <div class="right ml-96 mt-16  ">
         <ul class="flex items-center">
           <li class="flex mr-6 my-2">
             <button
@@ -237,7 +237,7 @@ const Announcement = ({ AnnouncementData }) => {
             Request
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
