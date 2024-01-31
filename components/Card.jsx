@@ -34,7 +34,7 @@ function Card(props) {
   }, [])
   let [Expanding, setExpanding] = useState(true)
 
-   const date= props.date.split('-');
+  const date = props.date.split('-');
   return (
     <div className="h-fit w-fit " data-aos="flip-up">
       <motion.div
@@ -153,10 +153,10 @@ function Card(props) {
                   <div className="m-2">Closed</div>
                 </button>
               ) : props.link ? (
-                <a href={props.gflink} target="_blank" rel="noopener">
+                <a href={props.link} target="_blank" rel="noopener">
                   <button class="text-sm text-white bg-teal-900 rounded-md w-full  py-1 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer">
-                    <a href={props.link} className="m-2">Register Now</a>
-                    
+                    <a href={`${props.link}`} className="m-2">Register Now</a>
+
                   </button>
                 </a>
               ) : null}
