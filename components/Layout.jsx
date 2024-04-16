@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
         <script type="module" src="/src/main.jsx"></script>
       </Head>
       <div className="flex flex-col h-screen justify-between">
-        {loading ? (
+        {0 ? (
           <div className="flex h-screen flex-grow flex-col gap-6 items-center justify-center">
             <svg
               data-aos="fade-in"
