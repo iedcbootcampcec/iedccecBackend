@@ -7,9 +7,9 @@ import Image from "next/image"
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 py-8">
-      <div class="block" className="container mx-auto flex flex-wrap ">
-        <div className="w-full md:w-1/3 text-center md:text-left mb-6 md:mb-0 flex flex-col md:ml-6 ">
+    <footer className="bg-gray-800 py-8  ">
+      <div  className=" mx-auto flex flex-wrap md:flex-nowrap ">
+        <div className="w-full md:w-1/3 text-center md:text-left mb-6 md:mb-0 flex flex-col md:ml-6">
           <Image
             src={logo}
             width={100}
@@ -221,7 +221,8 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="mr-4"
               >
-                <FaTwitter />
+                <FaXTwitter />
+
               </a>
               <a
                 href="https://instagram.com/iedcbootcampcec?igshid=MzRlODBiNWFlZA=="
