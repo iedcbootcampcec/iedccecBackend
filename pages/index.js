@@ -6,7 +6,9 @@ import {
   Team,
   Testimonials,
   Vanta,
+  Recomen,
 } from "@/components"
+import TicTakTo from "@/components/TicTakTo"
 import { firestore } from "@/utils/firebase"
 
 export default function Home({
@@ -16,13 +18,20 @@ export default function Home({
   SubTeamData,
   TestimonialsData,
   FacultyData,
+  
 }) {
   return (
     <>
       <Vanta />
       <div className="sm:px-16 px-5 w-full">
         <Iet />
-        <Announcement AnnouncementData={AnnouncementData} />
+    
+       
+       <div className="flex  flex-wrap md:flex-nowrap items-center gap-20">
+          <Announcement AnnouncementData={AnnouncementData} />
+          <TicTakTo/>
+       </div>
+
         <Achievements AchievementsData={AchievementsData} />
         <About />
         <Team title="Faculty" time={4000} TeamData={FacultyData} />
