@@ -51,7 +51,7 @@ function Events({ EventsData }) {
 
 
   return (
-    <div className="">
+    <div className=" overflow-hidden">
       {loading?(
         <div className="flex flex-col h-screen justify-between">
           <div className="flex h-screen flex-grow flex-col gap-6 items-center justify-center">

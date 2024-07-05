@@ -39,7 +39,7 @@ const Execom = ({ TeamsData }) => {
   }, [activeNo])
 
   const handlePrevious = () => {
-    if (activeYear > 2018) {
+    if (activeYear > 2022) {
       setActiveYear(activeYear - 1);
       setActiveNo(activeNo - 1);
       setSlidemove("fade-right");
@@ -55,7 +55,7 @@ const Execom = ({ TeamsData }) => {
   };
 
   useEffect(() => {
-    setNoPrevious(activeYear <= 2018);
+    setNoPrevious(activeYear <= 2022);
     setNoNext(activeYear >= 2023);
   }, [activeYear]);
 
@@ -123,7 +123,9 @@ const Execom = ({ TeamsData }) => {
                 </div>
                 <div className="text-center mt-[-65px]">
                   <h2 className="text-lg font-bold">{item.name}</h2>
-                  <p className="text-gray-500 text-xs">{item.pos}</p>
+                  {/* <p className="text-gray-500 text-xs">{item.pos }</p> */}
+                  {item.pos && <p className="text-gray-500 text-xs">{item.pos }</p>}
+                  {!item.pos && <p className="text-gray-500 text-xs">{item.position }</p>}
                 </div>
                 <div className="w-full h-full text-right items-center justify-start mt-3 mb-2 ml-5 flex gap-4 text-gray-600 text-xs">
                   <a href={`${item.linkedin}`} className="text-blue-500">

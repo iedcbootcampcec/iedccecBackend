@@ -3,15 +3,17 @@ import img3 from "../images/technology.jpeg"
 import img1 from "../images/innovative.jpeg"
 import Image from "next/image"
 
+import React, { useState, useEffect } from 'react';
+
 const Iet = () => {
   return (
     <div id="vision" className="mt-5 mb-5">
       <div className="flex justify-center items-center">
-        <div className="w-[500px] h-fit" data-aos="flip-down">
-          <h1 className="font-extrabold text-6xl text-center">
-            "THE BEST WAY TO PREDICT THE FUTURE IS TO INVENT IT."
+        <div className="w-[600px] h-fit" data-aos="flip-down">
+          <h1 className="font-extrabold text-5xl text-center">
+          "I think it's possible for ordinary people to choose to be extraordinary." 
           </h1>
-          <p className="text-center"> - Alan Kay</p>
+          <p className="text-right mr-10"> - Elon Musk</p>
         </div>
       </div>
       <div class="pt-16 mb-16 flex flex-col">
