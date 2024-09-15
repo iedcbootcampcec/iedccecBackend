@@ -16,7 +16,7 @@ function PitchAnIdea() {
       <div className="flex flex-col items-center justify-center w-full">
         <h1 className="text-2xl mb-4 font-poppins">Pitch an idea!!!!</h1>
         <textarea
-          className="w-4/5 min-h-[80%] mb-4 resize-none outline-none border-none p-2 text-base text-gray-600 font-poppins"
+          className="w-4/5 min-h-[80%] mb-4 resize-none outline-none border-none p-2 text-base text-gray-600 font-poppins bg-gray-100 rounded-2xl"
           placeholder="Tell me about your idea and what problem it fixes...."
           value={pitch}
           onChange={(e) => setPitch(e.target.value)}
@@ -135,7 +135,7 @@ function PitchAnIdea() {
 
   return (
     <div className="flex items-center justify-center h-full w-full">
-      <div className="flex flex-col items-center justify-center min-h-[35%] w-full p-2 rounded-2xl shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] md:w-[70%]">
+      <div className="flex flex-col items-center justify-center min-h-[35%] w-full p-2 pt-8 pb-4 rounded-2xl shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px] md:w-[70%]">
         {isJudged ? (
           <Judgement
             pitch={pitch}

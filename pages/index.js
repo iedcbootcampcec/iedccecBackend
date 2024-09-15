@@ -28,7 +28,7 @@ export default function Home({
         <Iet />
     
        
-       <div className="flex  flex-wrap md:flex-nowrap items-center gap-20">
+       <div className="flex  flex-wrap md:flex-nowrap items-center gap-10">
           <Announcement AnnouncementData={AnnouncementData} />
           <PitchAnIdea />
        </div>
