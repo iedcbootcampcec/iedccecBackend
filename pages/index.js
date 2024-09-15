@@ -9,6 +9,7 @@ import {
   Recomen,
 } from "@/components"
 import TicTakTo from "@/components/TicTakTo"
+import PitchAnIdea from "@/components/PitchAnIdea"
 import { firestore } from "@/utils/firebase"
 
 export default function Home({
@@ -29,7 +30,7 @@ export default function Home({
        
        <div className="flex  flex-wrap md:flex-nowrap items-center gap-20">
           <Announcement AnnouncementData={AnnouncementData} />
-          <TicTakTo/>
+          <PitchAnIdea />
        </div>
 
         <Achievements AchievementsData={AchievementsData} />
