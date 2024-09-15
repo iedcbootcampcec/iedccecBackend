@@ -28,11 +28,10 @@ export default function Home({
         <Iet />
     
        
-       <div className="flex  flex-wrap md:flex-nowrap items-center gap-10">
+       <div className="flex  flex-wrap md:flex-nowrap items-center gap-10 pb-20 mb-20 md:mb-0 pd-0">
           <Announcement AnnouncementData={AnnouncementData} />
           <PitchAnIdea />
        </div>
-
         <Achievements AchievementsData={AchievementsData} />
         <About />
         <Team title="Faculty" time={4000} TeamData={FacultyData} />
