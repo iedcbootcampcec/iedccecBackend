@@ -17,7 +17,7 @@ function PitchAnIdea() {
         <h1 className="text-2xl mb-4 font-poppins">Pitch an idea!!!!</h1>
         <textarea
           className="w-4/5 min-h-[80%] mb-4 resize-none outline-none border-none p-2 text-base text-gray-600 font-poppins bg-gray-100 rounded-2xl"
-          placeholder="Tell me about your idea and what problem it fixes...."
+          placeholder="Describe your idea and the problem it solves...."
           value={pitch}
           onChange={(e) => setPitch(e.target.value)}
         />
