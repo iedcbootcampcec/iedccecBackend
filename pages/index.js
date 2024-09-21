@@ -9,6 +9,7 @@ import {
   Recomen,
 } from "@/components"
 import TicTakTo from "@/components/TicTakTo"
+import PitchAnIdea from "@/components/PitchAnIdea"
 import { firestore } from "@/utils/firebase"
 
 export default function Home({
@@ -27,11 +28,10 @@ export default function Home({
         <Iet />
     
        
-       <div className="flex  flex-wrap md:flex-nowrap items-center gap-20">
+       <div className="flex  flex-wrap md:flex-nowrap items-center gap-10 pb-20 mb-20 md:mb-0 pd-0">
           <Announcement AnnouncementData={AnnouncementData} />
-          <TicTakTo/>
+          <PitchAnIdea />
        </div>
-
         <Achievements AchievementsData={AchievementsData} />
         <About />
         <Team title="Faculty" time={4000} TeamData={FacultyData} />
