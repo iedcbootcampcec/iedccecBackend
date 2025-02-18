@@ -26,10 +26,10 @@ async function fetchData(TeamName) {
 }
 
 const Execom = ({ TeamsData }) => {
-  const [activeYear, setActiveYear] = useState(2023);
+  const [activeYear, setActiveYear] = useState(2024);
   const [noNext, setNoNext] = useState(false);
   const [noPrevious, setNoPrevious] = useState(false);
-  const [activeNo, setActiveNo] = useState(23);
+  const [activeNo, setActiveNo] = useState(24);
   const [slidemove, setSlidemove] = useState("fade-up");
   const [TeamData, setTeamData] = useState(TeamsData);
 
@@ -50,7 +50,7 @@ const Execom = ({ TeamsData }) => {
   };
 
   const handleNext = () => {
-    if (activeYear < 2023) {
+    if (activeYear < 2024) {
       setActiveYear(activeYear + 1);
       setActiveNo(activeNo + 1);
       setSlidemove("fade-left");
@@ -59,7 +59,7 @@ const Execom = ({ TeamsData }) => {
 
   useEffect(() => {
     setNoPrevious(activeYear <= 2017);
-    setNoNext(activeYear >= 2023);
+    setNoNext(activeYear >= 2024);
   }, [activeYear]);
 
   useEffect(() => {
