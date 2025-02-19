@@ -33,21 +33,13 @@ export default function Home({
   //   {
   //     id: 2,
   //     image:
-  //       "Team%2025%2FAbhiRaj.webp?alt=media&token=463b9a78-afcd-4c41-8d64-c7158c2c45a7",
+  //       "Team%2025%2FChristo-Pius_.webp?alt=media&token=01e894c3-e1f1-45ae-b62b-629296bb8d8c",
   //     linkedin: "",
-  //     name: "Abhi Raj",
-  //     position: "Video Editor",
+  //     name: "Christo Pius",
+  //     position: "Marketing and Social Media Manager",
   //   },
   //   {
   //     id: 3,
-  //     image:
-  //       "Team%2025%2FDevika-Lakshmi-M.webp?alt=media&token=a5749802-45f8-4e77-a859-3b0cf35ba1cf",
-  //     linkedin: "",
-  //     name: "Devika Lakshmi M",
-  //     position: "Designer",
-  //   },
-  //   {
-  //     id: 4,
   //     image:
   //       "Team%2025%2FM-Aswathy_.webp?alt=media&token=6936c2ae-6a14-4924-9c23-a6fe967d4b91",
   //     linkedin: "",
@@ -55,14 +47,7 @@ export default function Home({
   //     position: "Content Writer",
   //   },
   //   {
-  //     id: 5,
-  //     image: "Team%2025%2FSanjeev%20S%20Nair%20(1).webp?alt=media&token=20b95d90-e1fa-4141-ba58-f152c1d95c20",
-  //     linkedin: "",
-  //     name: "Sanjeev S Nair",
-  //     position: "Video Editor",
-  //   },
-  //   {
-  //     id: 6,
+  //     id: 4,
   //     image:
   //       "Team%2025%2FAnanya-P-Santh.webp?alt=media&token=4b0e06ee-5d79-43ed-96b3-91373b8ff5e1",
   //     linkedin: "",
@@ -70,12 +55,27 @@ export default function Home({
   //     position: "Content Writer",
   //   },
   //   {
+  //     id: 5,
+  //     image:
+  //       "Team%2025%2FAbhiRaj.webp?alt=media&token=463b9a78-afcd-4c41-8d64-c7158c2c45a7",
+  //     linkedin: "",
+  //     name: "Abhi Raj",
+  //     position: "Video Editor",
+  //   },
+  //   {
+  //     id: 6,
+  //     image: "Team%2025%2FSanjeev%20S%20Nair%20(1).webp?alt=media&token=20b95d90-e1fa-4141-ba58-f152c1d95c20",
+  //     linkedin: "",
+  //     name: "Sanjeev S Nair",
+  //     position: "Video Editor",
+  //   },
+  //   {
   //     id: 7,
   //     image:
-  //       "Team%2025%2FChristo-Pius_.webp?alt=media&token=01e894c3-e1f1-45ae-b62b-629296bb8d8c",
+  //       "Team%2025%2FDevika-Lakshmi-M.webp?alt=media&token=a5749802-45f8-4e77-a859-3b0cf35ba1cf",
   //     linkedin: "",
-  //     name: "Christo Pius",
-  //     position: "Marketing and Social Media Manager",
+  //     name: "Devika Lakshmi M",
+  //     position: "Designer",
   //   },
   //   {
   //     id: 8,
@@ -125,7 +125,7 @@ export default function Home({
   //     }
   //   };
 
-  //   //updateTeamCollection();
+  //   updateTeamCollection();
   // }, []);
 
   return (
