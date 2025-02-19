@@ -71,7 +71,7 @@ function PitchAnIdea() {
     };
 
     const genAI = new GoogleGenerativeAI(
-      "AIzaSyA6QQ5LB53cEzPeVADKZ8tQcVwJZ9ZSakA"
+      "AIzaSyCR79tmp9SHfUGtwK9C3R39es6T3EtlV7s"
     );
 
     async function responeGen(idea) {
