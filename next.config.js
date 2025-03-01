@@ -10,6 +10,10 @@ const nextConfig = {
         source: "/:code",
         destination: "/api/redirect/:code",
       },
+      {
+        source: "/:code/:sub",
+        destination: "/api/redirect/:code/:sub",
+      },
     ];
   },
 };
