@@ -8,7 +8,7 @@ const nextConfig = {
     return [
       {
         source: "/:code",
-        destination: "/api/redirect/:code",
+        destination: "/api/redirect/:code/nope",
       },
       {
         source: "/:code/:sub",

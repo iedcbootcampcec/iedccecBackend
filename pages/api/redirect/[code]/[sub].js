@@ -11,17 +11,24 @@ export default async function handler(req, res) {
     if (snapshot.exists) {
       const data = snapshot.data();
       if (data) {
-        const subUri = data[sub];
+        if(sub==="nope"){
+          res.redirect(
+            301,
+            data.uri
+          );
+          return;
+        }
+        const subUri = data.sub[sub];
         if (subUri) {
           res.redirect(
             301,
-            subUri.startsWith("http") ? subUri : `https://${subUri}`
+            subUri
           );
           return;
         }
         res.redirect(
           301,
-          data.uri.startsWith("http") ? data.uri : `https://${data.uri}`
+          data.uri
         );
         return;
       }
