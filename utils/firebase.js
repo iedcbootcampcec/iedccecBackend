@@ -1,14 +1,16 @@
 import firebase from "firebase/app"
 import "firebase/firestore"
 
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBA1L7mHzIQzp3HogWJiHVEeD5BASwA6r8",
-  authDomain: "iedccecbackend.firebaseapp.com",
-  projectId: "iedccecbackend",
-  storageBucket: "iedccecbackend.appspot.com",
-  messagingSenderId: "1082480249320",
-  appId: "1:1082480249320:web:1815d2aa5430ca7031fc5d",
-  measurementId: "G-8708CF7WK3",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_apiKey,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_authDomain,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_projectId,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_storageBucket,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_messagingSenderId,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_appId,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_measurementId,
 }
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
