@@ -32,6 +32,7 @@ const Execom = ({ TeamsData }) => {
   const [activeNo, setActiveNo] = useState(24);
   const [slidemove, setSlidemove] = useState("fade-up");
   const [TeamData, setTeamData] = useState(TeamsData);
+  const [isPending, setIsPending] = useState(true);
 
   const [loading, setLoading] = useState(false);
   useEffect(() => {

@@ -52,7 +52,6 @@ header {
 }
 .header-bg {
   top: 0;
-  filter: blur(0.8);
   backdrop-filter: blur(10px);
   height: 60px;
   width: 100%;
