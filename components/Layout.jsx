@@ -2,7 +2,9 @@ import React from "react"
 import { useEffect, useState } from "react"
 import BarLoader from "react-spinners/BarLoader"
 import Head from "next/head"
-import { Footer, Navbar } from "@/components"
+// import { Footer, Navbar } from "@/components"
+import Footer from "./Footer"
+import Navbar from "./Navbar"
 
 const Layout = ({ children }) => {
   const [loading, setLoading] = useState(false)
