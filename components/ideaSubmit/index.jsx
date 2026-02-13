@@ -443,6 +443,12 @@ export default function IdeaSubmit() {
               className={styles.fieldset}
             >
               {/* Name + Phone */}
+              <label className={styles.label} style={{ marginBottom: -8 }}>
+                Your Details{" "}
+                <span style={{ fontWeight: 400, opacity: 0.5 }}>
+                  (Team Leader)
+                </span>
+              </label>
               <div className={styles.row}>
                 <div className={styles.field}>
                   <label className={styles.label}>First Name</label>
