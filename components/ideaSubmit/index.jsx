@@ -519,6 +519,15 @@ export default function IdeaSubmit() {
 
                     {teammates.map((mate, i) => (
                       <div key={i} className={styles.teammateRow}>
+                        {teammates.length > 2 && (
+                          <button
+                            type="button"
+                            className={styles.removeBtn}
+                            onClick={() => removeTeammate(i)}
+                          >
+                            ✕
+                          </button>
+                        )}
                         <div className={styles.field}>
                           <input
                             className={styles.input}
@@ -550,15 +559,6 @@ export default function IdeaSubmit() {
                             />
                           </div>
                         </div>
-                        {teammates.length > 2 && (
-                          <button
-                            type="button"
-                            className={styles.removeBtn}
-                            onClick={() => removeTeammate(i)}
-                          >
-                            ✕
-                          </button>
-                        )}
                       </div>
                     ))}
                   </div>

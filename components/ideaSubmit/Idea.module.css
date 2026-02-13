@@ -978,6 +978,10 @@
    ╚══════════════════════════════════════╝ */
 
 @media screen and (max-width: 768px) {
+  .overlay input {
+    font-size: 16px;
+  }
+
   .ctaCard {
     min-height: 280px;
     padding: 32px 20px 28px;
@@ -1007,10 +1011,16 @@
   }
 
   .teammateRow {
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .teammateRow .field {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .phoneWrap {
     min-width: 0;
   }
 }
