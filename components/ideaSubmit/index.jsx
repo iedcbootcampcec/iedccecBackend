@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import styles from "./Idea.module.css";
 
-const emptyMember = () => ({ name: "", phone: "" });
+const emptyMember = () => ({ name: "", phone: "", studentClass: "" });
 
 const isValidPhone = (num) => /^[6-9]\d{9}$/.test(num);
 const sanitizePhone = (val) => val.replace(/\D/g, "").slice(0, 10);
@@ -38,18 +38,20 @@ const submitIdea = async (data) => {
 
 export default function IdeaSubmit() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isTeam, setIsTeam] = useState(false);
   const [error, setError] = useState("");
   const [submitStatus, setSubmitStatus] = useState("idle"); // idle | submitting | success | error
   const [submitMessage, setSubmitMessage] = useState("");
 
   const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState("");
   const [teamName, setTeamName] = useState("");
   const [ideaTitle, setIdeaTitle] = useState("");
   const [brief, setBrief] = useState("");
-  const [teammates, setTeammates] = useState([emptyMember(), emptyMember()]);
+  const [studentClass, setStudentClass] = useState("");
+  const [videoUrl, setVideoUrl] = useState("");
+  const [teammates, setTeammates] = useState([]);
 
   /* ── tagline rotation ── */
   const [taglineIndex, setTaglineIndex] = useState(0);
@@ -98,13 +100,15 @@ export default function IdeaSubmit() {
 
   const resetForm = () => {
     setFirstName("");
+    setEmail("");
     setPhone("");
     setPhoneError("");
+    setStudentClass("");
+    setVideoUrl("");
     setTeamName("");
     setIdeaTitle("");
     setBrief("");
-    setTeammates([emptyMember(), emptyMember()]);
-    setIsTeam(false);
+    setTeammates([]);
     setError("");
   };
 
@@ -122,15 +126,13 @@ export default function IdeaSubmit() {
   }, []);
 
   const addTeammate = () => {
-    if (teammates.length < 3) {
+    if (teammates.length < 2) {
       setTeammates((prev) => [...prev, emptyMember()]);
     }
   };
 
   const removeTeammate = (index) => {
-    if (teammates.length > 2) {
-      setTeammates((prev) => prev.filter((_, i) => i !== index));
-    }
+    setTeammates((prev) => prev.filter((_, i) => i !== index));
   };
 
   /* ── submit ── */
@@ -145,6 +147,16 @@ export default function IdeaSubmit() {
       return;
     }
 
+    if (!email.trim()) {
+      setError("Email is required.");
+      return;
+    }
+
+    if (!studentClass) {
+      setError("Please select your class.");
+      return;
+    }
+
     if (!isValidPhone(phone)) {
       setError("Enter a valid 10-digit phone number.");
       return;
@@ -155,54 +167,51 @@ export default function IdeaSubmit() {
       return;
     }
 
-    let data;
-
-    if (isTeam) {
-      if (!teamName.trim()) {
-        setError("Team name is required.");
-        return;
-      }
-
-      const filledTeammates = teammates.filter(
-        (t) => t.name.trim() && t.phone.trim(),
-      );
-
-      if (filledTeammates.length < 2) {
-        setError(
-          "At least 2 teammates are required (min 3 members total including you).",
-        );
-        return;
-      }
-
-      const invalidTeammate = filledTeammates.find(
-        (t) => !isValidPhone(t.phone),
-      );
-      if (invalidTeammate) {
-        setError(
-          `Teammate "${invalidTeammate.name}" has an invalid phone number.`,
-        );
-        return;
-      }
-
-      data = {
-        type: "team",
-        leader: { firstName: firstName.trim(), phone: "+91" + phone.trim() },
-        teamName: teamName.trim(),
-        teammates: filledTeammates.map((t) => ({
-          name: t.name.trim(),
-          phone: "+91" + t.phone.trim(),
-        })),
-        ideaTitle: ideaTitle.trim(),
-        brief: brief.trim(),
-      };
-    } else {
-      data = {
-        type: "individual",
-        leader: { firstName: firstName.trim(), phone: "+91" + phone.trim() },
-        ideaTitle: ideaTitle.trim(),
-        brief: brief.trim(),
-      };
+    if (!videoUrl.trim()) {
+      setError("A video URL presenting your idea is required.");
+      return;
     }
+
+    if (!teamName.trim()) {
+      setError("Team name is required.");
+      return;
+    }
+
+    const filledTeammates = teammates.filter(
+      (t) => t.name.trim() && t.phone.trim(),
+    );
+
+    const invalidTeammate = filledTeammates.find((t) => !isValidPhone(t.phone));
+    if (invalidTeammate) {
+      setError(
+        `Teammate "${invalidTeammate.name}" has an invalid phone number.`,
+      );
+      return;
+    }
+
+    const missingClass = filledTeammates.find((t) => !t.studentClass);
+    if (missingClass) {
+      setError(`Teammate "${missingClass.name}" needs a class selected.`);
+      return;
+    }
+
+    const data = {
+      leader: {
+        firstName: firstName.trim(),
+        email: email.trim(),
+        phone: "+91" + phone.trim(),
+        studentClass,
+      },
+      teamName: teamName.trim(),
+      teammates: filledTeammates.map((t) => ({
+        name: t.name.trim(),
+        phone: "+91" + t.phone.trim(),
+        studentClass: t.studentClass,
+      })),
+      ideaTitle: ideaTitle.trim(),
+      brief: brief.trim(),
+      videoUrl: videoUrl.trim(),
+    };
 
     // ── Call API ──
     setSubmitStatus("submitting");
@@ -473,97 +482,112 @@ export default function IdeaSubmit() {
                 </div>
               </div>
 
-              {/* Team toggle */}
-              <div className={styles.toggleRow}>
-                <span className={styles.toggleLabel}>Individual</span>
-                <label className={styles.toggle}>
+              {/* Email + Class */}
+              <div className={styles.row}>
+                <div className={styles.field}>
+                  <label className={styles.label}>Email</label>
                   <input
-                    className={styles.toggleInput}
-                    type="checkbox"
-                    checked={isTeam}
-                    onChange={(e) => setIsTeam(e.target.checked)}
+                    className={styles.input}
+                    type="email"
+                    placeholder="john@example.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
-                  <span className={styles.toggleTrack} />
-                </label>
-                <span className={styles.toggleLabel}>Team</span>
+                </div>
+                <div className={styles.field}>
+                  <label className={styles.label}>Class</label>
+                  <input
+                    className={styles.input}
+                    type="text"
+                    placeholder="e.g. S6 E"
+                    value={studentClass}
+                    onChange={(e) => setStudentClass(e.target.value)}
+                  />
+                </div>
               </div>
 
-              {/* Team fields */}
-              {isTeam && (
-                <>
-                  <div className={styles.field}>
-                    <label className={styles.label}>Team Name</label>
-                    <input
-                      className={styles.input}
-                      type="text"
-                      placeholder="The Mavericks"
-                      value={teamName}
-                      onChange={(e) => setTeamName(e.target.value)}
-                    />
-                  </div>
+              {/* Team Name */}
+              <div className={styles.field}>
+                <label className={styles.label}>Team Name</label>
+                <input
+                  className={styles.input}
+                  type="text"
+                  placeholder="The Mavericks"
+                  value={teamName}
+                  onChange={(e) => setTeamName(e.target.value)}
+                />
+              </div>
 
-                  <div className={styles.teammatesSection}>
-                    <div className={styles.teammatesHeader}>
-                      <span className={styles.teammatesTitle}>
-                        Teammates ({teammates.length}/3)
-                      </span>
-                      <button
-                        type="button"
-                        className={styles.addBtn}
-                        onClick={addTeammate}
-                        disabled={teammates.length >= 3}
-                      >
-                        + Add
-                      </button>
+              {/* Teammates */}
+              <div className={styles.teammatesSection}>
+                <div className={styles.teammatesHeader}>
+                  <span className={styles.teammatesTitle}>
+                    Teammates ({teammates.length}/2)
+                  </span>
+                  <button
+                    type="button"
+                    className={styles.addBtn}
+                    onClick={addTeammate}
+                    disabled={teammates.length >= 2}
+                  >
+                    + Add
+                  </button>
+                </div>
+
+                {teammates.map((mate, i) => (
+                  <div key={i} className={styles.teammateRow}>
+                    <button
+                      type="button"
+                      className={styles.removeBtn}
+                      onClick={() => removeTeammate(i)}
+                    >
+                      ✕
+                    </button>
+                    <div className={styles.field}>
+                      <input
+                        className={styles.input}
+                        type="text"
+                        placeholder={`Teammate ${i + 1} name`}
+                        value={mate.name}
+                        onChange={(e) =>
+                          updateTeammate(i, "name", e.target.value)
+                        }
+                      />
                     </div>
-
-                    {teammates.map((mate, i) => (
-                      <div key={i} className={styles.teammateRow}>
-                        {teammates.length > 2 && (
-                          <button
-                            type="button"
-                            className={styles.removeBtn}
-                            onClick={() => removeTeammate(i)}
-                          >
-                            ✕
-                          </button>
-                        )}
-                        <div className={styles.field}>
-                          <input
-                            className={styles.input}
-                            type="text"
-                            placeholder={`Teammate ${i + 1} name`}
-                            value={mate.name}
-                            onChange={(e) =>
-                              updateTeammate(i, "name", e.target.value)
-                            }
-                          />
-                        </div>
-                        <div className={styles.field}>
-                          <div className={styles.phoneWrap}>
-                            <span className={styles.phonePrefix}>+91 -</span>
-                            <input
-                              className={`${styles.input} ${styles.phoneInput}`}
-                              type="tel"
-                              inputMode="numeric"
-                              placeholder="Phone"
-                              maxLength={10}
-                              value={mate.phone}
-                              onChange={(e) =>
-                                updateTeammate(
-                                  i,
-                                  "phone",
-                                  sanitizePhone(e.target.value),
-                                )
-                              }
-                            />
-                          </div>
-                        </div>
+                    <div className={styles.field}>
+                      <div className={styles.phoneWrap}>
+                        <span className={styles.phonePrefix}>+91 -</span>
+                        <input
+                          className={`${styles.input} ${styles.phoneInput}`}
+                          type="tel"
+                          inputMode="numeric"
+                          placeholder="Phone"
+                          maxLength={10}
+                          value={mate.phone}
+                          onChange={(e) =>
+                            updateTeammate(
+                              i,
+                              "phone",
+                              sanitizePhone(e.target.value),
+                            )
+                          }
+                        />
                       </div>
-                    ))}
+                    </div>
+                    <div className={styles.field}>
+                      <input
+                        className={styles.input}
+                        type="text"
+                        placeholder="Class"
+                        value={mate.studentClass}
+                        onChange={(e) =>
+                          updateTeammate(i, "studentClass", e.target.value)
+                        }
+                      />
+                    </div>
                   </div>
-                </>
-              )}
+                ))}
+              </div>
 
               <hr className={styles.divider} />
 
@@ -588,6 +612,18 @@ export default function IdeaSubmit() {
                   placeholder="Tell us what your idea is about..."
                   value={brief}
                   onChange={(e) => setBrief(e.target.value)}
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label className={styles.label}>Video URL</label>
+                <input
+                  className={styles.input}
+                  type="url"
+                  required
+                  placeholder="Link to a video presenting your idea"
+                  value={videoUrl}
+                  onChange={(e) => setVideoUrl(e.target.value)}
                 />
               </div>
 

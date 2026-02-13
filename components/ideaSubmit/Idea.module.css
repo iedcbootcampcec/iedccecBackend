@@ -751,7 +751,18 @@
 .teammateRow {
   display: flex;
   gap: 10px;
-  align-items: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.teammateRow .field {
+  min-width: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .teammateRow .field {
+    flex: 1 1 120px;
+  }
 }
 
 .removeBtn {
@@ -978,10 +989,6 @@
    ╚══════════════════════════════════════╝ */
 
 @media screen and (max-width: 768px) {
-  .overlay input {
-    font-size: 16px;
-  }
-
   .ctaCard {
     min-height: 280px;
     padding: 32px 20px 28px;
@@ -1012,6 +1019,7 @@
 
   .teammateRow {
     flex-direction: column;
+    align-items: flex-end;
     gap: 8px;
   }
 
