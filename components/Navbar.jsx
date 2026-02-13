@@ -1,33 +1,45 @@
-import React, { useRef, useState, useEffect } from "react"
-import { FaTimes, FaBars } from "react-icons/fa"
-import Image from "next/image"
-import logo from "../images/logo.webp"
-import Link from "next/link"
+import React, { useRef, useState, useEffect } from "react";
+import { FaTimes, FaBars } from "react-icons/fa";
+import Image from "next/image";
+import logo from "../images/logo.webp";
+import Link from "next/link";
 const Navbar = () => {
-  const [nav, setNav] = useState(false)
+  const [nav, setNav] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const navbg = () => {
     if (window.scrollY >= 20) {
-      setNav(true)
+      setNav(true);
     } else {
-      setNav(false)
+      setNav(false);
     }
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener("scroll", navbg)
+    window.addEventListener("scroll", navbg);
+
+    const handleModalToggle = (e) => {
+      document.body.style.overflow = e.detail.open ? "hidden" : "auto";
+      const header = document.getElementById("real-header");
+      header.style.zIndex = e.detail.open ? "-1" : "10000";
+      setModalOpen(e.detail.open);
+    };
+    window.addEventListener("ideaModalToggle", handleModalToggle);
 
     return () => {
-      window.removeEventListener("scroll", navbg)
-    }
-  }, [])
+      window.removeEventListener("scroll", navbg);
+      window.removeEventListener("ideaModalToggle", handleModalToggle);
+    };
+  }, []);
 
-  const navRef = useRef()
+  const navRef = useRef();
   const showNavbar = () => {
-    navRef.current.classList.toggle("responsive-nav")
-  }
+    navRef.current.classList.toggle("responsive-nav");
+  };
   return (
-    <header className={nav && "header-bg"}>
+    <header
+      className={`${nav ? "header-bg" : ""} ${modalOpen ? "header-hidden" : ""}`}
+    >
       <div className=" px-[5%] flex">
         <div className="w-[40px] h-[40px] self-center justify-center">
           <Image width={50} height={50} src={logo} />
@@ -203,16 +215,16 @@ const Navbar = () => {
         </Link>
       </div>
       <nav ref={navRef}>
-        <Link href="/">Home</Link> 
+        <Link href="/">Home</Link>
         <Link href="/Events"> Events</Link>
         {/* <Link href="/#achievements"> Achievements</Link> */}
-        <Link href="/Execom">Execoms</Link> 
+        <Link href="/Execom">Execoms</Link>
         {/* <Link href="/#team">Team</Link> */}
         <Link href="/#Testimonials"> Testimonials</Link>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSelHbI4I12mE-mQBLU-LRn6bG5EHLBuvQA1k_V7DyAVeFKP2Q/viewform">
           <button class="text-sm text-white bg-black rounded-md px-6 py-2 transition hover:bg-transparent hover:text-black hover:ring-2 hover:ring-black cursor-pointer">
-          JoinUs
-        </button>
+            JoinUs
+          </button>
         </a>
 
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
@@ -223,7 +235,7 @@ const Navbar = () => {
         <FaBars className="icons bars" />
       </button>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

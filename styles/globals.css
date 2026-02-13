@@ -11,7 +11,7 @@ html {
   font-family: "Poppins";
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   width: 6px;
 }
 
@@ -24,7 +24,7 @@ body::-webkit-scrollbar-track {
 }
 
 @media screen and (max-width: 768px) {
-  *{
+  * {
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -32,9 +32,7 @@ body::-webkit-scrollbar-track {
   *::-webkit-scrollbar {
     display: none;
   }
-
 }
-
 
 header {
   position: fixed;
@@ -57,6 +55,10 @@ header {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.664);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.header-hidden {
+  transform: translateY(-100%);
+  pointer-events: none;
 }
 header p {
   padding-left: 120px;

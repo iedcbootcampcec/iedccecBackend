@@ -1,0 +1,1016 @@
+/* ╔══════════════════════════════════════╗
+   ║       CTA CARD – TRIGGER AREA       ║
+   ╚══════════════════════════════════════╝ */
+
+.ctaCard {
+  position: relative;
+  flex: 1;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 28px 36px;
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    border-color 0.4s,
+    box-shadow 0.4s;
+  border-radius: 6px;
+}
+
+.ctaCard:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 0 60px rgba(255, 255, 255, 0.06),
+    inset 0 0 60px rgba(255, 255, 255, 0.02);
+}
+
+/* ── Corner accents ── */
+.cornerTL,
+.cornerBR {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0.25;
+  transition: opacity 0.3s;
+}
+
+.ctaCard:hover .cornerTL,
+.ctaCard:hover .cornerBR {
+  opacity: 0.5;
+}
+
+.cornerTL {
+  top: 12px;
+  left: 12px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+}
+
+.cornerBR {
+  bottom: 12px;
+  right: 12px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+}
+
+/* ╔══════════════════════════════════════╗
+   ║        FLOATING PARTICLES           ║
+   ╚══════════════════════════════════════╝ */
+
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  animation: float 8s infinite ease-in-out;
+}
+
+.particle:nth-child(1) {
+  left: 10%;
+  top: 80%;
+  animation-delay: 0s;
+  animation-duration: 7s;
+}
+.particle:nth-child(2) {
+  left: 25%;
+  top: 90%;
+  animation-delay: 1s;
+  animation-duration: 9s;
+}
+.particle:nth-child(3) {
+  left: 50%;
+  top: 85%;
+  animation-delay: 2s;
+  animation-duration: 6s;
+}
+.particle:nth-child(4) {
+  left: 70%;
+  top: 95%;
+  animation-delay: 0.5s;
+  animation-duration: 10s;
+}
+.particle:nth-child(5) {
+  left: 85%;
+  top: 88%;
+  animation-delay: 3s;
+  animation-duration: 8s;
+}
+.particle:nth-child(6) {
+  left: 40%;
+  top: 92%;
+  animation-delay: 1.5s;
+  animation-duration: 7.5s;
+}
+.particle:nth-child(7) {
+  left: 60%;
+  top: 78%;
+  animation-delay: 2.5s;
+  animation-duration: 11s;
+}
+.particle:nth-child(8) {
+  left: 15%;
+  top: 70%;
+  animation-delay: 4s;
+  animation-duration: 9.5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-180px) scale(1.3);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-320px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+/* ╔══════════════════════════════════════╗
+   ║         GLOW RING + BULB            ║
+   ╚══════════════════════════════════════╝ */
+
+.glowRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  transform: translate(-50%, -58%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 70%
+  );
+  animation: pulseGlow 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    transform: translate(-50%, -58%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -58%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+.bulbWrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  z-index: 2;
+  color: #fff;
+  animation: bobble 4s ease-in-out infinite;
+}
+
+@keyframes bobble {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.bulbSvg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.25));
+  animation: bulbFlicker 4s ease-in-out infinite;
+}
+
+.ctaCard:hover .bulbSvg {
+  filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.45));
+  animation: bulbFlickerHover 3s ease-in-out infinite;
+}
+
+@keyframes bulbFlicker {
+  0% {
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.22));
+    opacity: 0.92;
+  }
+  4% {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.12));
+    opacity: 0.78;
+  }
+  6% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.28));
+    opacity: 0.95;
+  }
+  8% {
+    filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.18));
+    opacity: 0.85;
+  }
+  10% {
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.25));
+    opacity: 0.93;
+  }
+  30% {
+    filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.3));
+    opacity: 1;
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.26));
+    opacity: 0.96;
+  }
+  52% {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.14));
+    opacity: 0.82;
+  }
+  54% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.27));
+    opacity: 0.97;
+  }
+  70% {
+    filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.3));
+    opacity: 1;
+  }
+  100% {
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.22));
+    opacity: 0.92;
+  }
+}
+
+@keyframes bulbFlickerHover {
+  0% {
+    filter: drop-shadow(0 0 26px rgba(255, 255, 255, 0.4));
+    opacity: 0.95;
+  }
+  5% {
+    filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.25));
+    opacity: 0.85;
+  }
+  7% {
+    filter: drop-shadow(0 0 32px rgba(255, 255, 255, 0.5));
+    opacity: 1;
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.48));
+    opacity: 0.98;
+  }
+  53% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+    opacity: 0.88;
+  }
+  55% {
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.48));
+    opacity: 1;
+  }
+  100% {
+    filter: drop-shadow(0 0 26px rgba(255, 255, 255, 0.4));
+    opacity: 0.95;
+  }
+}
+
+/* ── Rays around the bulb ── */
+.rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110px;
+  height: 110px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.rays span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.35);
+  transform-origin: center -24px;
+  border-radius: 2px;
+  animation: rayPulse 3s ease-in-out infinite;
+}
+
+.rays span:nth-child(1) {
+  transform: rotate(0deg) translateY(-24px);
+}
+.rays span:nth-child(2) {
+  transform: rotate(60deg) translateY(-24px);
+  animation-delay: 0.5s;
+}
+.rays span:nth-child(3) {
+  transform: rotate(120deg) translateY(-24px);
+  animation-delay: 1s;
+}
+.rays span:nth-child(4) {
+  transform: rotate(180deg) translateY(-24px);
+  animation-delay: 1.5s;
+}
+.rays span:nth-child(5) {
+  transform: rotate(240deg) translateY(-24px);
+  animation-delay: 2s;
+}
+.rays span:nth-child(6) {
+  transform: rotate(300deg) translateY(-24px);
+  animation-delay: 2.5s;
+}
+
+@keyframes rayPulse {
+  0%,
+  100% {
+    opacity: 0.15;
+    height: 10px;
+  }
+  50% {
+    opacity: 0.55;
+    height: 18px;
+  }
+}
+
+.ray {
+  display: none; /* SVG placeholder, real rays are CSS */
+}
+
+/* ╔══════════════════════════════════════╗
+   ║           TEXT CONTENT              ║
+   ╚══════════════════════════════════════╝ */
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.ctaEyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.ctaTagline {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  min-height: 2em;
+  display: flex;
+  align-items: center;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+  line-height: 1.3;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.ctaSub {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  max-width: 260px;
+  line-height: 1.5;
+}
+
+/* ╔══════════════════════════════════════╗
+   ║           CTA BUTTON                ║
+   ╚══════════════════════════════════════╝ */
+
+.ctaBtnWrap {
+  position: relative;
+  z-index: 2;
+  margin-top: 4px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: #fff;
+  color: #000;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    transform 0.25s,
+    box-shadow 0.25s;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  animation: btnGlow 3s ease-in-out infinite;
+}
+
+@keyframes btnGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px 2px rgba(255, 255, 255, 0.1);
+  }
+}
+
+.ctaCard:hover .ctaBtn {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.15);
+}
+
+.ctaBtn svg {
+  transition: transform 0.25s;
+}
+
+.ctaCard:hover .ctaBtn svg {
+  transform: translateX(4px);
+}
+
+/* ╔══════════════════════════════════════╗
+   ║            OVERLAY                  ║
+   ╚══════════════════════════════════════╝ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ╔══════════════════════════════════════╗
+   ║             MODAL                   ║
+   ╚══════════════════════════════════════╝ */
+
+.modal {
+  background: #fff;
+  border: 1px solid #ddd;
+  width: 520px;
+  max-width: 94vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 36px 32px 28px;
+  position: relative;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.25s ease;
+  border-radius: 6px;
+}
+
+.overlay.open .modal {
+  transform: translateY(0) scale(1);
+}
+
+/* scrollbar */
+.modal::-webkit-scrollbar {
+  width: 6px;
+}
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
+/* ── Close ── */
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s;
+  font-family: inherit;
+}
+.closeBtn:hover {
+  color: #000;
+}
+
+/* ── Title ── */
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 24px;
+}
+
+/* ── Form layout ── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input,
+.textarea {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #111;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+  border-radius: 4px;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #aaa;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #000;
+}
+
+/* ── Phone input with prefix ── */
+.phoneWrap {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.15s;
+}
+
+.phoneWrap:focus-within {
+  border-color: #000;
+}
+
+.phonePrefix {
+  padding: 10px 0 10px 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #888;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+.phoneInput {
+  border: none !important;
+  background: transparent !important;
+  flex: 1;
+  padding-left: 4px !important;
+}
+
+.phoneInput:focus {
+  border: none !important;
+  outline: none;
+}
+
+.fieldHint {
+  font-size: 0.7rem;
+  color: #d00;
+  margin-top: -2px;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* ── Team toggle ── */
+.toggleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggleLabel {
+  font-size: 0.8rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.toggle {
+  position: relative;
+  width: 44px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.toggleInput {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.toggleTrack {
+  position: absolute;
+  inset: 0;
+  background: #ddd;
+  border: 1px solid #ccc;
+  border-radius: 11px;
+  transition: background 0.2s;
+}
+
+.toggleInput:checked + .toggleTrack {
+  background: #000;
+  border-color: #000;
+}
+
+.toggleTrack::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #999;
+  border-radius: 50%;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+.toggleInput:checked + .toggleTrack::after {
+  transform: translateX(22px);
+  background: #fff;
+}
+
+/* ── Teammates section ── */
+.teammatesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.teammatesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.teammatesTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.addBtn {
+  background: none;
+  border: 1px solid #ccc;
+  color: #555;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+  border-radius: 4px;
+}
+
+.addBtn:hover {
+  border-color: #000;
+  color: #000;
+}
+
+.addBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.teammateRow {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.removeBtn {
+  background: none;
+  border: 1px solid #ccc;
+  color: #999;
+  width: 34px;
+  height: 34px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+  margin-bottom: 1px;
+  font-family: inherit;
+  border-radius: 4px;
+}
+
+.removeBtn:hover {
+  border-color: #000;
+  color: #000;
+}
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: #eee;
+  border: none;
+  margin: 4px 0;
+}
+
+/* ── Submit ── */
+.submitBtn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+  border-radius: 4px;
+}
+
+.submitBtn:hover {
+  background: #333;
+}
+
+/* ── Error ── */
+.error {
+  font-size: 0.75rem;
+  color: #d00;
+  margin-top: -8px;
+}
+
+/* ╔══════════════════════════════════════╗
+   ║       FIELDSET + SPINNER            ║
+   ╚══════════════════════════════════════╝ */
+
+.fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.fieldset:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.spinnerWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ╔══════════════════════════════════════╗
+   ║       RESULT OVERLAY                ║
+   ╚══════════════════════════════════════╝ */
+
+.resultOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.96);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  animation: overlayFadeIn 0.3s ease;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.resultContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.resultIcon {
+  width: 80px;
+  height: 80px;
+}
+
+.resultText {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  max-width: 280px;
+  line-height: 1.5;
+}
+
+/* ── Success circle + tick ── */
+.successCircle {
+  stroke-dasharray: 226;
+  stroke-dashoffset: 226;
+  animation: drawCircle 0.6s ease forwards;
+}
+
+.successTick {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: drawTick 0.4s 0.45s ease forwards;
+}
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawTick {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ── Error circle + X ── */
+.errorCircle {
+  stroke-dasharray: 226;
+  stroke-dashoffset: 226;
+  animation: drawCircle 0.6s ease forwards;
+}
+
+.errorX1 {
+  stroke-dasharray: 34;
+  stroke-dashoffset: 34;
+  animation: drawX 0.3s 0.45s ease forwards;
+}
+
+.errorX2 {
+  stroke-dasharray: 34;
+  stroke-dashoffset: 34;
+  animation: drawX 0.3s 0.6s ease forwards;
+}
+
+@keyframes drawX {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ── Retry button ── */
+.retryBtn {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.retryBtn:hover {
+  background: #333;
+}
+
+/* ╔══════════════════════════════════════╗
+   ║           RESPONSIVE                ║
+   ╚══════════════════════════════════════╝ */
+
+@media screen and (max-width: 768px) {
+  .ctaCard {
+    min-height: 280px;
+    padding: 32px 20px 28px;
+  }
+
+  .ctaTagline {
+    font-size: 1.15rem;
+  }
+
+  .bulbWrap {
+    width: 56px;
+    height: 56px;
+  }
+
+  .glowRing {
+    width: 130px;
+    height: 130px;
+  }
+
+  .modal {
+    padding: 28px 18px 22px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .teammateRow {
+    flex-wrap: wrap;
+  }
+
+  .teammateRow .field {
+    min-width: 0;
+  }
+}

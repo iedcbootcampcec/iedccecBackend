@@ -1,19 +1,19 @@
-import React from "react"
-import { useEffect, useState } from "react"
-import BarLoader from "react-spinners/BarLoader"
-import Head from "next/head"
+import React from "react";
+import { useEffect, useState } from "react";
+import BarLoader from "react-spinners/BarLoader";
+import Head from "next/head";
 // import { Footer, Navbar } from "@/components"
-import Footer from "./Footer"
-import Navbar from "./Navbar"
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     setTimeout(() => {
-      setLoading(false)
-    }, 3000)
-  }, [])
+      setLoading(false);
+    }, 3000);
+  }, []);
 
   return (
     <div>
@@ -208,11 +208,17 @@ const Layout = ({ children }) => {
                 fill="#090000"
               />
             </svg>
-            <BarLoader color={"#000000"} loading={loading} size={30} height={5} width={150}/>
+            <BarLoader
+              color={"#000000"}
+              loading={loading}
+              size={30}
+              height={5}
+              width={150}
+            />
           </div>
         ) : (
           <>
-            <header>
+            <header id="real-header">
               <Navbar />
             </header>
             <main className="flex-grow">{children}</main>
@@ -223,7 +229,7 @@ const Layout = ({ children }) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
