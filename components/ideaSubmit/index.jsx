@@ -16,7 +16,14 @@ const TAGLINES = [
   "Be the founder of something great.",
 ];
 
+const LAST_DATE = new Date("2026-02-20T23:59:59");
+
+const isClosed = () => new Date() > LAST_DATE;
+
 const submitIdea = async (data) => {
+  if (isClosed()) {
+    throw new Error("Idea submission is closed.");
+  }
   try {
     const response = await fetch(
       process.env.NEXT_PUBLIC_IDEA_PITCH_API + "/submit-idea",
@@ -435,7 +442,49 @@ export default function IdeaSubmit() {
             </div>
           )}
 
-          <h2 className={styles.modalTitle}>Submit Your Idea</h2>
+          <h2 className={styles.modalTitle}>Idea-Drive</h2>
+
+          <div className={styles.guidelines}>
+            <p className={styles.guidelinesTagline}>
+              Transform your innovative ideas into impactful startups!
+            </p>
+            <p className={styles.guidelinesDesc}>
+              A platform to present, validate and refine your startup pitch
+              among peers.
+            </p>
+
+            <div className={styles.guidelinesInfo}>
+              <p>
+                <strong>🎯 What is Idea-Drive?</strong>
+                <br />
+                An idea-pitch competition and a platform for IEDC Startup's own
+                innovators, designed to identify high-potential ideas and
+                provide mentorship &amp; recognition.
+              </p>
+              <p>
+                <strong>👥 Who can join?</strong>
+                <br />
+                Students with innovative ideas!
+              </p>
+              <p>
+                <strong>🏷️ Domains:</strong>
+                <br />
+                Biotechnology / Healthcare / Education / Smart Systems / Social
+                Impact
+              </p>
+              {/* <p>
+                <strong>📋 Submission Guideline:</strong>
+                <br />
+                Deadline — <em>14/02/2026</em>
+              </p> */}
+              <p>
+                <strong>
+                  🚀 Submit your original idea and be part of shaping the
+                  future!
+                </strong>
+              </p>
+            </div>
+          </div>
 
           <form className={styles.form} onSubmit={handleSubmit}>
             <fieldset
@@ -631,6 +680,39 @@ export default function IdeaSubmit() {
                   value={videoUrl}
                   onChange={(e) => setVideoUrl(e.target.value)}
                 />
+                <div className={styles.videoGuidelines}>
+                  <p className={styles.videoGuidelinesTitle}>
+                    Participants must upload a short video clearly explaining
+                    their idea. The video should cover the following points:
+                  </p>
+                  <ol className={styles.videoGuidelinesList}>
+                    <li>
+                      <strong>Problem Identification</strong> — What problem are
+                      you solving and why it matters
+                    </li>
+                    <li>
+                      <strong>Proposed Solution</strong> — Your idea and how it
+                      works
+                    </li>
+                    <li>
+                      <strong>Innovation &amp; Novelty</strong> — What makes
+                      your idea unique
+                    </li>
+                    <li>
+                      <strong>Feasibility &amp; Impact</strong> — Practicality
+                      and potential impact
+                    </li>
+                    <li>
+                      <strong>Duration: Maximum 3 minutes</strong>
+                    </li>
+                  </ol>
+                  <p className={styles.videoGuidelinesNote}>
+                    Orientation: Landscape preferred.
+                    <br />
+                    Original content only. Plagiarism results in instant
+                    disqualification.
+                  </p>
+                </div>
               </div>
 
               {error && <p className={styles.error}>{error}</p>}
