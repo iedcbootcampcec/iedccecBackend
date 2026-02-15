@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useCallback, useEffect } from "react";
 import styles from "./Idea.module.css";
+import RadioSelect from "./RadioSelect";
 
 const emptyMember = () => ({ name: "", phone: "", studentClass: "" });
 
@@ -16,7 +17,7 @@ const TAGLINES = [
   "Be the founder of something great.",
 ];
 
-const LAST_DATE = new Date("2026-02-20T23:59:59");
+const LAST_DATE = new Date("2026-02-19T23:59:59");
 
 const isClosed = () => new Date() > LAST_DATE;
 
@@ -58,6 +59,8 @@ export default function IdeaSubmit() {
   const [brief, setBrief] = useState("");
   const [studentClass, setStudentClass] = useState("");
   const [videoUrl, setVideoUrl] = useState("");
+  const [ideaTheme, setIdeaTheme] = useState("");
+  const [ideaThemeOther, setIdeaThemeOther] = useState("");
   const [teammates, setTeammates] = useState([]);
 
   /* ── tagline rotation ── */
@@ -115,6 +118,8 @@ export default function IdeaSubmit() {
     setTeamName("");
     setIdeaTitle("");
     setBrief("");
+    setIdeaTheme("");
+    setIdeaThemeOther("");
     setTeammates([]);
     setError("");
   };
@@ -184,6 +189,13 @@ export default function IdeaSubmit() {
       return;
     }
 
+    const resolvedTheme =
+      ideaTheme === "Other" ? ideaThemeOther.trim() : ideaTheme;
+    if (!resolvedTheme) {
+      setError("Please select an idea theme.");
+      return;
+    }
+
     const filledTeammates = teammates.filter(
       (t) => t.name.trim() && t.phone.trim(),
     );
@@ -218,6 +230,7 @@ export default function IdeaSubmit() {
       ideaTitle: ideaTitle.trim(),
       brief: brief.trim(),
       videoUrl: videoUrl.trim(),
+      ideaTheme: ideaTheme === "Other" ? ideaThemeOther.trim() : ideaTheme,
     };
 
     // ── Call API ──
@@ -442,297 +455,310 @@ export default function IdeaSubmit() {
             </div>
           )}
 
-          <h2 className={styles.modalTitle}>Idea-Drive</h2>
+          <div className={styles.modalBody}>
+            <h2 className={styles.modalTitle}>Idea-Drive</h2>
 
-          <div className={styles.guidelines}>
-            <p className={styles.guidelinesTagline}>
-              Transform your innovative ideas into impactful startups!
-            </p>
-            <p className={styles.guidelinesDesc}>
-              A platform to present, validate and refine your startup pitch
-              among peers.
-            </p>
+            <div className={styles.guidelines}>
+              <p className={styles.guidelinesTagline}>
+                Transform your innovative ideas into impactful startups!
+              </p>
+              <p className={styles.guidelinesDesc}>
+                A platform to present, validate and refine your startup pitch
+                among peers.
+              </p>
 
-            <div className={styles.guidelinesInfo}>
-              <p>
-                <strong>🎯 What is Idea-Drive?</strong>
-                <br />
-                An idea-pitch competition and a platform for IEDC Startup's own
-                innovators, designed to identify high-potential ideas and
-                provide mentorship &amp; recognition.
-              </p>
-              <p>
-                <strong>👥 Who can join?</strong>
-                <br />
-                Students with innovative ideas!
-              </p>
-              <p>
-                <strong>🏷️ Domains:</strong>
-                <br />
-                Biotechnology / Healthcare / Education / Smart Systems / Social
-                Impact
-              </p>
-              {/* <p>
-                <strong>📋 Submission Guideline:</strong>
-                <br />
-                Deadline — <em>14/02/2026</em>
-              </p> */}
-              <p>
-                <strong>
-                  🚀 Submit your original idea and be part of shaping the
-                  future!
-                </strong>
-              </p>
+              <div className={styles.guidelinesInfo}>
+                <p>
+                  <strong>🎯 What is Idea-Drive?</strong>
+                  <br />
+                  An idea-pitch competition and a platform for IEDC Startup's
+                  own innovators, designed to identify high-potential ideas and
+                  provide mentorship &amp; recognition.
+                </p>
+                <p>
+                  <strong>👥 Who can join?</strong>
+                  <br />
+                  Students with innovative ideas!
+                </p>
+                <p>
+                  <strong>📋 Submission Guideline:</strong>
+                  <br />
+                  Deadline — <em>19/02/2026</em>
+                </p>
+                <p>
+                  <strong>
+                    🚀 Submit your original idea and be part of shaping the
+                    future!
+                  </strong>
+                </p>
+              </div>
             </div>
-          </div>
 
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <fieldset
-              disabled={submitStatus === "submitting"}
-              className={styles.fieldset}
-            >
-              {/* Name + Phone */}
-              <label className={styles.label} style={{ marginBottom: -8 }}>
-                Your Details{" "}
-                <span style={{ fontWeight: 400, opacity: 0.5 }}>
-                  (Team Leader)
-                </span>
-              </label>
-              <div className={styles.row}>
-                <div className={styles.field}>
-                  <label className={styles.label}>First Name</label>
-                  <input
-                    className={styles.input}
-                    type="text"
-                    placeholder="John"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                  />
-                </div>
-                <div className={styles.field}>
-                  <label className={styles.label}>Phone Number</label>
-                  <div className={styles.phoneWrap}>
-                    <span className={styles.phonePrefix}>+91 -</span>
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <fieldset
+                disabled={submitStatus === "submitting"}
+                className={styles.fieldset}
+              >
+                {/* Name + Phone */}
+                <label className={styles.label} style={{ marginBottom: -8 }}>
+                  Your Details{" "}
+                  <span style={{ fontWeight: 400, opacity: 0.5 }}>
+                    (Team Leader)
+                  </span>
+                </label>
+                <div className={styles.row}>
+                  <div className={styles.field}>
+                    <label className={styles.label}>First Name</label>
                     <input
-                      className={`${styles.input} ${styles.phoneInput}`}
-                      type="tel"
-                      inputMode="numeric"
-                      placeholder="98765 43210"
-                      maxLength={10}
-                      value={phone}
-                      onChange={(e) => {
-                        const val = sanitizePhone(e.target.value);
-                        setPhone(val);
-                        setPhoneError(
-                          val && !isValidPhone(val) && val.length === 10
-                            ? "Invalid number"
-                            : "",
-                        );
-                      }}
+                      className={styles.input}
+                      type="text"
+                      placeholder="John"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                     />
                   </div>
-                  {phoneError && (
-                    <span className={styles.fieldHint}>{phoneError}</span>
-                  )}
+                  <div className={styles.field}>
+                    <label className={styles.label}>Phone Number</label>
+                    <div className={styles.phoneWrap}>
+                      <span className={styles.phonePrefix}>+91 -</span>
+                      <input
+                        className={`${styles.input} ${styles.phoneInput}`}
+                        type="tel"
+                        inputMode="numeric"
+                        placeholder="98765 43210"
+                        maxLength={10}
+                        value={phone}
+                        onChange={(e) => {
+                          const val = sanitizePhone(e.target.value);
+                          setPhone(val);
+                          setPhoneError(
+                            val && !isValidPhone(val) && val.length === 10
+                              ? "Invalid number"
+                              : "",
+                          );
+                        }}
+                      />
+                    </div>
+                    {phoneError && (
+                      <span className={styles.fieldHint}>{phoneError}</span>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              {/* Email + Class */}
-              <div className={styles.row}>
-                <div className={styles.field}>
-                  <label className={styles.label}>Email</label>
-                  <input
-                    className={styles.input}
-                    type="email"
-                    placeholder="john@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
+                {/* Email + Class */}
+                <div className={styles.row}>
+                  <div className={styles.field}>
+                    <label className={styles.label}>Email</label>
+                    <input
+                      className={styles.input}
+                      type="email"
+                      placeholder="john@example.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className={styles.field}>
+                    <label className={styles.label}>Class</label>
+                    <input
+                      className={styles.input}
+                      type="text"
+                      placeholder="e.g. S6 E"
+                      value={studentClass}
+                      onChange={(e) => setStudentClass(e.target.value)}
+                    />
+                  </div>
                 </div>
+
+                {/* Team Name */}
                 <div className={styles.field}>
-                  <label className={styles.label}>Class</label>
+                  <label className={styles.label}>Team Name</label>
                   <input
                     className={styles.input}
                     type="text"
-                    placeholder="e.g. S6 E"
-                    value={studentClass}
-                    onChange={(e) => setStudentClass(e.target.value)}
+                    placeholder="The Mavericks"
+                    value={teamName}
+                    onChange={(e) => setTeamName(e.target.value)}
                   />
                 </div>
-              </div>
 
-              {/* Team Name */}
-              <div className={styles.field}>
-                <label className={styles.label}>Team Name</label>
-                <input
-                  className={styles.input}
-                  type="text"
-                  placeholder="The Mavericks"
-                  value={teamName}
-                  onChange={(e) => setTeamName(e.target.value)}
-                />
-              </div>
-
-              {/* Teammates */}
-              <div className={styles.teammatesSection}>
-                <div className={styles.teammatesHeader}>
-                  <span className={styles.teammatesTitle}>
-                    Teammates ({teammates.length}/2)
-                  </span>
-                  <button
-                    type="button"
-                    className={styles.addBtn}
-                    onClick={addTeammate}
-                    disabled={teammates.length >= 2}
-                  >
-                    + Add
-                  </button>
-                </div>
-
-                {teammates.map((mate, i) => (
-                  <div key={i} className={styles.teammateRow}>
+                {/* Teammates */}
+                <div className={styles.teammatesSection}>
+                  <div className={styles.teammatesHeader}>
+                    <span className={styles.teammatesTitle}>
+                      Teammates ({teammates.length}/2)
+                    </span>
                     <button
                       type="button"
-                      className={styles.removeBtn}
-                      onClick={() => removeTeammate(i)}
+                      className={styles.addBtn}
+                      onClick={addTeammate}
+                      disabled={teammates.length >= 2}
                     >
-                      ✕
+                      + Add
                     </button>
-                    <div className={styles.field}>
-                      <input
-                        className={styles.input}
-                        type="text"
-                        placeholder={`Teammate ${i + 1} name`}
-                        value={mate.name}
-                        onChange={(e) =>
-                          updateTeammate(i, "name", e.target.value)
-                        }
-                      />
-                    </div>
-                    <div className={styles.field}>
-                      <div className={styles.phoneWrap}>
-                        <span className={styles.phonePrefix}>+91 -</span>
+                  </div>
+
+                  {teammates.map((mate, i) => (
+                    <div key={i} className={styles.teammateRow}>
+                      <button
+                        type="button"
+                        className={styles.removeBtn}
+                        onClick={() => removeTeammate(i)}
+                      >
+                        ✕
+                      </button>
+                      <div className={styles.field}>
                         <input
-                          className={`${styles.input} ${styles.phoneInput}`}
-                          type="tel"
-                          inputMode="numeric"
-                          placeholder="Phone"
-                          maxLength={10}
-                          value={mate.phone}
+                          className={styles.input}
+                          type="text"
+                          placeholder={`Teammate ${i + 1} name`}
+                          value={mate.name}
                           onChange={(e) =>
-                            updateTeammate(
-                              i,
-                              "phone",
-                              sanitizePhone(e.target.value),
-                            )
+                            updateTeammate(i, "name", e.target.value)
+                          }
+                        />
+                      </div>
+                      <div className={styles.field}>
+                        <div className={styles.phoneWrap}>
+                          <span className={styles.phonePrefix}>+91 -</span>
+                          <input
+                            className={`${styles.input} ${styles.phoneInput}`}
+                            type="tel"
+                            inputMode="numeric"
+                            placeholder="Phone"
+                            maxLength={10}
+                            value={mate.phone}
+                            onChange={(e) =>
+                              updateTeammate(
+                                i,
+                                "phone",
+                                sanitizePhone(e.target.value),
+                              )
+                            }
+                          />
+                        </div>
+                      </div>
+                      <div className={styles.field}>
+                        <input
+                          className={styles.input}
+                          type="text"
+                          placeholder="Class"
+                          value={mate.studentClass}
+                          onChange={(e) =>
+                            updateTeammate(i, "studentClass", e.target.value)
                           }
                         />
                       </div>
                     </div>
-                    <div className={styles.field}>
-                      <input
-                        className={styles.input}
-                        type="text"
-                        placeholder="Class"
-                        value={mate.studentClass}
-                        onChange={(e) =>
-                          updateTeammate(i, "studentClass", e.target.value)
-                        }
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <hr className={styles.divider} />
-
-              {/* Idea details */}
-              <div className={styles.field}>
-                <label className={styles.label}>Idea Title</label>
-                <input
-                  className={styles.input}
-                  type="text"
-                  required
-                  placeholder="A one-liner for your idea"
-                  value={ideaTitle}
-                  onChange={(e) => setIdeaTitle(e.target.value)}
-                />
-              </div>
-
-              <div className={styles.field}>
-                <label className={styles.label}>Brief Description</label>
-                <textarea
-                  className={styles.textarea}
-                  required
-                  placeholder="Tell us what your idea is about..."
-                  value={brief}
-                  onChange={(e) => setBrief(e.target.value)}
-                />
-              </div>
-
-              <div className={styles.field}>
-                <label className={styles.label}>Video URL</label>
-                <input
-                  className={styles.input}
-                  type="url"
-                  required
-                  placeholder="Link to a video presenting your idea"
-                  value={videoUrl}
-                  onChange={(e) => setVideoUrl(e.target.value)}
-                />
-                <div className={styles.videoGuidelines}>
-                  <p className={styles.videoGuidelinesTitle}>
-                    Participants must upload a short video clearly explaining
-                    their idea. The video should cover the following points:
-                  </p>
-                  <ol className={styles.videoGuidelinesList}>
-                    <li>
-                      <strong>Problem Identification</strong> — What problem are
-                      you solving and why it matters
-                    </li>
-                    <li>
-                      <strong>Proposed Solution</strong> — Your idea and how it
-                      works
-                    </li>
-                    <li>
-                      <strong>Innovation &amp; Novelty</strong> — What makes
-                      your idea unique
-                    </li>
-                    <li>
-                      <strong>Feasibility &amp; Impact</strong> — Practicality
-                      and potential impact
-                    </li>
-                    <li>
-                      <strong>Duration: Maximum 3 minutes</strong>
-                    </li>
-                  </ol>
-                  <p className={styles.videoGuidelinesNote}>
-                    Orientation: Landscape preferred.
-                    <br />
-                    Original content only. Plagiarism results in instant
-                    disqualification.
-                  </p>
+                  ))}
                 </div>
-              </div>
 
-              {error && <p className={styles.error}>{error}</p>}
+                <hr className={styles.divider} />
 
-              <button
-                type="submit"
-                className={styles.submitBtn}
-                disabled={submitStatus === "submitting"}
-              >
-                {submitStatus === "submitting" ? (
-                  <span className={styles.spinnerWrap}>
-                    <span className={styles.spinner} />
-                    Submitting…
-                  </span>
-                ) : (
-                  "Submit"
-                )}
-              </button>
-            </fieldset>
-          </form>
+                {/* Idea Theme */}
+                <RadioSelect
+                  label="Idea Theme *"
+                  options={[
+                    "Coir Industry",
+                    "Coastal Issues",
+                    "Agriculture",
+                    "Tourism & Inland Navigation",
+                    "Agrinext Challenges",
+                  ]}
+                  value={ideaTheme}
+                  onChange={setIdeaTheme}
+                  hasOther
+                  otherValue={ideaThemeOther}
+                  onOtherChange={setIdeaThemeOther}
+                />
+
+                {/* Idea details */}
+                <div className={styles.field}>
+                  <label className={styles.label}>Idea Title</label>
+                  <input
+                    className={styles.input}
+                    type="text"
+                    required
+                    placeholder="A one-liner for your idea"
+                    value={ideaTitle}
+                    onChange={(e) => setIdeaTitle(e.target.value)}
+                  />
+                </div>
+
+                <div className={styles.field}>
+                  <label className={styles.label}>Brief Description</label>
+                  <textarea
+                    className={styles.textarea}
+                    required
+                    placeholder="Tell us what your idea is about..."
+                    value={brief}
+                    onChange={(e) => setBrief(e.target.value)}
+                  />
+                </div>
+
+                <div className={styles.field}>
+                  <label className={styles.label}>Video URL</label>
+                  <input
+                    className={styles.input}
+                    type="url"
+                    required
+                    placeholder="Link to a video presenting your idea"
+                    value={videoUrl}
+                    onChange={(e) => setVideoUrl(e.target.value)}
+                  />
+                  <div className={styles.videoGuidelines}>
+                    <p className={styles.videoGuidelinesTitle}>
+                      Participants must upload a short video clearly explaining
+                      their idea. The video should cover the following points:
+                    </p>
+                    <ol className={styles.videoGuidelinesList}>
+                      <li>
+                        <strong>Problem Identification</strong> — What problem
+                        are you solving and why it matters
+                      </li>
+                      <li>
+                        <strong>Proposed Solution</strong> — Your idea and how
+                        it works
+                      </li>
+                      <li>
+                        <strong>Innovation &amp; Novelty</strong> — What makes
+                        your idea unique
+                      </li>
+                      <li>
+                        <strong>Feasibility &amp; Impact</strong> — Practicality
+                        and potential impact
+                      </li>
+                      <li>
+                        <strong>Duration: Maximum 3 minutes</strong>
+                      </li>
+                    </ol>
+                    <p className={styles.videoGuidelinesNote}>
+                      Orientation: Landscape preferred.
+                      <br />
+                      Original content only. Plagiarism results in instant
+                      disqualification.
+                    </p>
+                  </div>
+                </div>
+
+                {error && <p className={styles.error}>{error}</p>}
+
+                <button
+                  type="submit"
+                  className={styles.submitBtn}
+                  disabled={submitStatus === "submitting"}
+                >
+                  {submitStatus === "submitting" ? (
+                    <span className={styles.spinnerWrap}>
+                      <span className={styles.spinner} />
+                      Submitting…
+                    </span>
+                  ) : (
+                    "Submit"
+                  )}
+                </button>
+              </fieldset>
+            </form>
+          </div>
         </div>
       </div>
     </>
