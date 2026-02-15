@@ -649,6 +649,9 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .row {
@@ -661,6 +664,7 @@
   flex-direction: column;
   gap: 6px;
   flex: 1;
+  min-width: 0;
 }
 
 .label {
@@ -682,6 +686,9 @@
   outline: none;
   transition: border-color 0.15s;
   border-radius: 4px;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
 }
 
 .input::placeholder,
@@ -702,6 +709,8 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   transition: border-color 0.15s;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .phoneWrap:focus-within {
@@ -996,6 +1005,8 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .fieldset:disabled {
@@ -1169,11 +1180,14 @@
   }
 
   .modal {
-    padding: 28px 12px;
+    padding: 0;
+    max-width: 100vw;
+    box-sizing: border-box;
   }
 
   .modalBody {
-    padding: 0;
+    padding: 24px 16px;
+    overflow-x: hidden;
   }
 
   .row {
