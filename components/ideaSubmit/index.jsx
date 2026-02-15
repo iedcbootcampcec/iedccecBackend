@@ -336,7 +336,8 @@ export default function IdeaSubmit() {
             {TAGLINES[taglineIndex]}
           </h3>
           <p className={styles.ctaSub}>
-            Solo or team — pitch your startup idea and get it noticed
+            College to State Level — pitch your startup idea & win from a ₹3,000
+            prize pool!
           </p>
         </div>
 
@@ -462,18 +463,19 @@ export default function IdeaSubmit() {
               <p className={styles.guidelinesTagline}>
                 Transform your innovative ideas into impactful startups!
               </p>
-              <p className={styles.guidelinesDesc}>
-                A platform to present, validate and refine your startup pitch
-                among peers.
-              </p>
 
               <div className={styles.guidelinesInfo}>
                 <p>
                   <strong>🎯 What is Idea-Drive?</strong>
+                  <br />A college-to-state-level idea-pitch competition and a
+                  platform for IEDC Startup&apos;s own innovators, designed to
+                  identify high-potential ideas and provide mentorship &amp;
+                  recognition.
+                </p>
+                <p>
+                  <strong>🏆 Prize Pool</strong>
                   <br />
-                  An idea-pitch competition and a platform for IEDC Startup's
-                  own innovators, designed to identify high-potential ideas and
-                  provide mentorship &amp; recognition.
+                  ₹3,000 up for grabs!
                 </p>
                 <p>
                   <strong>👥 Who can join?</strong>
@@ -728,7 +730,7 @@ export default function IdeaSubmit() {
                         and potential impact
                       </li>
                       <li>
-                        <strong>Duration: Maximum 3 minutes</strong>
+                        <strong>Duration: Minimum 2 minutes</strong>
                       </li>
                     </ol>
                     <p className={styles.videoGuidelinesNote}>
