@@ -4,6 +4,8 @@ import { useState, useCallback, useEffect } from "react";
 import styles from "./Idea.module.css";
 import RadioSelect from "./RadioSelect";
 
+const MAX_TEAMMATES = 4;
+
 const emptyMember = () => ({ name: "", phone: "", studentClass: "" });
 
 const isValidPhone = (num) => /^[6-9]\d{9}$/.test(num);
@@ -138,7 +140,7 @@ export default function IdeaSubmit() {
   }, []);
 
   const addTeammate = () => {
-    if (teammates.length < 2) {
+    if (teammates.length < MAX_TEAMMATES) {
       setTeammates((prev) => [...prev, emptyMember()]);
     }
   };
@@ -587,13 +589,13 @@ export default function IdeaSubmit() {
                 <div className={styles.teammatesSection}>
                   <div className={styles.teammatesHeader}>
                     <span className={styles.teammatesTitle}>
-                      Teammates ({teammates.length}/2)
+                      Teammates ({teammates.length}/{MAX_TEAMMATES})
                     </span>
                     <button
                       type="button"
                       className={styles.addBtn}
                       onClick={addTeammate}
-                      disabled={teammates.length >= 2}
+                      disabled={teammates.length >= MAX_TEAMMATES}
                     >
                       + Add
                     </button>
