@@ -24,9 +24,6 @@ const LAST_DATE = new Date("2026-02-19T23:59:59");
 const isClosed = () => new Date() > LAST_DATE;
 
 const submitIdea = async (data) => {
-  if (isClosed()) {
-    throw new Error("Idea submission is closed.");
-  }
   try {
     const response = await fetch(
       process.env.NEXT_PUBLIC_IDEA_PITCH_API + "/submit-idea",
@@ -152,6 +149,11 @@ export default function IdeaSubmit() {
   /* ── submit ── */
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isClosed()) {
+      setSubmitStatus("error");
+      setSubmitMessage("Idea submission is closed.");
+      return;
+    }
     setError("");
     setSubmitStatus("idle");
     setSubmitMessage("");
