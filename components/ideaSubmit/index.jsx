@@ -19,7 +19,7 @@ const TAGLINES = [
   "Be the founder of something great.",
 ];
 
-const LAST_DATE = new Date("2026-02-19T23:59:59");
+const LAST_DATE = new Date("2026-02-20T23:59:59");
 
 const isClosed = () => new Date() > LAST_DATE;
 
@@ -489,7 +489,7 @@ export default function IdeaSubmit() {
                 <p>
                   <strong>📋 Submission Guideline:</strong>
                   <br />
-                  Deadline — <em>19/02/2026</em>
+                  Deadline — <em>20/02/2026</em>
                 </p>
                 <p>
                   <strong>
