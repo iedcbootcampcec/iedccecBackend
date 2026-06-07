@@ -1,0 +1,6 @@
+export const CONFIG = {
+  EXECOM: "Team 25",
+  SUB_EXECOM: "Team 26",
+  CURRENT_EXEC_YEAR: 2025,
+  CURRENT_EXEC_ACTIVE_NUMBER: 25,
+};

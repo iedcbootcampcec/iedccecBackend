@@ -10,6 +10,7 @@ import {
 } from "@/components";
 import TicTakTo from "@/components/TicTakTo";
 import IdeaSubmit from "@/components/ideaSubmit";
+import { CONFIG } from "@/team-config";
 import { firestore } from "@/utils/firebase";
 import { useEffect } from "react";
 
@@ -59,13 +60,13 @@ export async function getServerSideProps() {
     const FacultyData = FacultySnapshot.docs.map((doc) => doc.data());
 
     const SubTeamSnapshot = await firestore
-      .collection("Team 24")
+      .collection(CONFIG.EXECOM)
       .orderBy("id")
       .get();
     const SubTeamData = SubTeamSnapshot.docs.map((doc) => doc.data());
 
     const Team24Snapshot = await firestore
-      .collection("Team 25")
+      .collection(CONFIG.SUB_EXECOM)
       .orderBy("id")
       .get();
     const Team24Data = Team24Snapshot.docs.map((doc) => doc.data());

@@ -6,6 +6,7 @@ import { BsLink45Deg } from "react-icons/bs";
 import { BsLinkedin } from "react-icons/bs";
 import { GrLinkNext } from "react-icons/gr";
 import { GrLinkPrevious } from "react-icons/gr";
+import { CONFIG } from "@/team-config";
 import user from "../images/user.jpg";
 
 import AOS from "aos";
@@ -26,10 +27,10 @@ async function fetchData(TeamName) {
 }
 
 const Execom = ({ TeamsData }) => {
-  const [activeYear, setActiveYear] = useState(2024);
+  const [activeYear, setActiveYear] = useState(CONFIG.CURRENT_EXEC_YEAR);
   const [noNext, setNoNext] = useState(false);
   const [noPrevious, setNoPrevious] = useState(false);
-  const [activeNo, setActiveNo] = useState(24);
+  const [activeNo, setActiveNo] = useState(CONFIG.CURRENT_EXEC_ACTIVE_NUMBER);
   const [slidemove, setSlidemove] = useState("fade-up");
   const [TeamData, setTeamData] = useState(TeamsData);
   const [isPending, setIsPending] = useState(true);
@@ -51,7 +52,7 @@ const Execom = ({ TeamsData }) => {
   };
 
   const handleNext = () => {
-    if (activeYear < 2024) {
+    if (activeYear < CONFIG.CURRENT_EXEC_YEAR) {
       setActiveYear(activeYear + 1);
       setActiveNo(activeNo + 1);
       setSlidemove("fade-left");
@@ -60,7 +61,7 @@ const Execom = ({ TeamsData }) => {
 
   useEffect(() => {
     setNoPrevious(activeYear <= 2017);
-    setNoNext(activeYear >= 2024);
+    setNoNext(activeYear >= CONFIG.CURRENT_EXEC_YEAR);
   }, [activeYear]);
 
   useEffect(() => {
